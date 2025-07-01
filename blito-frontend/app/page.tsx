@@ -71,6 +71,8 @@ export default function HomePage() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [loading, setLoading] = useState(false);
   const [searched, setSearched] = useState(false);
+  const [ordering, setOrdering] = useState<string>('departure_datetime');
+  const [setSelectedBusType] = useState<string>('');
 
   useEffect(() => {
     const token = localStorage.getItem('accessToken');
@@ -80,6 +82,12 @@ export default function HomePage() {
     const today = new Date().toISOString().split('T')[0];
     setSelectedDate(today);
   }, []);
+
+  useEffect(() => {
+  if (searched) {
+    searchTrips();
+    }
+  }, [ordering,]);
 
   const handleLogout = () => {
     localStorage.removeItem('accessToken');
@@ -108,10 +116,11 @@ export default function HomePage() {
       const url = new URL('http://localhost:12000/trips/api/v1/trips/');
       url.searchParams.append('route__origin', fromCity);
       url.searchParams.append('route__destination', toCity);
+      url.searchParams.append('ordering', ordering); // ← مرتب‌سازی
       if (selectedDate) {
         url.searchParams.append('departure_datetime__date', selectedDate);
       }
-      url.searchParams.append('ordering', 'departure_datetime');
+
 
       const res = await fetch(url.toString());
       const data: TripResponse = await res.json();
@@ -360,7 +369,7 @@ export default function HomePage() {
                 />
               </div>
             </div>
-
+            
             <div className="flex justify-center">
               <Button
                 onClick={searchTrips}
@@ -397,7 +406,29 @@ export default function HomePage() {
                 </Badge>
               )}
             </div>
-
+            {/* Filters Row */}
+              {trips.length > 0 && (
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  {/* مرتب‌سازی */}
+                  <div>
+                    <label className="block mb-2 font-medium text-slate-700">مرتب‌سازی بر اساس</label>
+                    <Select
+                      value={ordering}
+                      onValueChange={(value) => setOrdering(value)}
+                    >
+                      <SelectTrigger className="h-12 bg-white border-2 hover:border-blue-300 focus:border-blue-500">
+                        <SelectValue placeholder="مرتب‌سازی را انتخاب کنید" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="departure_datetime">زودترین حرکت</SelectItem>
+                        <SelectItem value="-departure_datetime">دیرترین حرکت</SelectItem>
+                        <SelectItem value="current_price">ارزان‌ترین</SelectItem>
+                        <SelectItem value="-current_price">گران‌ترین</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
+                </div>
+              )}
             {trips.length === 0 ? (
               <Card className="bg-white/70 backdrop-blur-sm border-0 shadow-lg">
                 <CardContent className="py-12 text-center">
