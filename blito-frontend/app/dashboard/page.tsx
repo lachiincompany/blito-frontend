@@ -8,7 +8,7 @@ import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
-import { LogOut, Home, User, Calendar, MapPin, CreditCard } from 'lucide-react';
+import { LogOut, Home, User, Calendar, MapPin, CreditCard, Pencil } from 'lucide-react';
 
 type ProfileType = {
   first_name: string;
@@ -165,6 +165,16 @@ export default function DashboardPage() {
                       <Badge className="bg-green-100 text-green-700 border-green-200">فعال</Badge>
                     </div>
                   </div>
+
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    onClick={() => router.push('/dashboard/edit')}
+                    className="mt-4 text-slate-600 hover:text-blue-600 hover:bg-blue-50"
+                  >
+                    ویرایش پروفایل
+                    <Pencil className="w-4 h-4 ml-2" />
+                  </Button>
                 </div>
               </CardContent>
             </Card>
