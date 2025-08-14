@@ -100,7 +100,8 @@ export default function HomePage() {
       try {
         const res = await fetch('http://localhost:12000/city/api/v1/cities/');
         const data = await res.json();
-        setCities(data.results);
+        const results: City[] = Array.isArray(data) ? data : (data?.results ?? []);
+        setCities(results);
       } catch (error) {
         console.error('خطا در گرفتن شهرها:', error);
       }
@@ -121,13 +122,16 @@ export default function HomePage() {
         url.searchParams.append('departure_datetime__date', selectedDate);
       }
 
-
       const res = await fetch(url.toString());
-      const data: TripResponse = await res.json();
+      if (!res.ok) {
+        throw new Error(`Failed to fetch trips: ${res.status}`);
+      }
+      const rawData = await res.json();
+      const results: TripType[] = Array.isArray(rawData) ? rawData : (rawData?.results ?? []);
       
       // Fetch additional route details for each trip
       const tripsWithRouteInfo = await Promise.all(
-        data.results.map(async (trip) => {
+        results.map(async (trip) => {
           try {
             const routeRes = await fetch(`http://localhost:12000/routes/api/v1/routes/${trip.route}/`);
             const routeData = await routeRes.json();
@@ -152,6 +156,8 @@ export default function HomePage() {
       setSearched(true);
     } catch (error) {
       console.error('خطا در جستجوی سفرها:', error);
+      setTrips([]);
+      setSearched(true);
     } finally {
       setLoading(false);
     }
