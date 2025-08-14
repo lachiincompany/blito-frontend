@@ -27,6 +27,21 @@
 > فونت فارسی Vazir/Vazirmatn در `app/layout.tsx` بارگذاری شده است.
 
 ---
+## 📸 پیش‌نمایش
+
+> برای مشاهده بهتر، روی هر تصویر کلیک کنید تا نسخه کامل باز شود.
+
+| صفحه | پیش‌نمایش |
+|------|-----------|
+| **صفحه اصلی** | ![صفحه اصلی](blito-frontend/public/screenshots/home.png) |
+| **صفحه ورود** | ![صفحه ورود](blito-frontend/public/screenshots/login.png) |
+| **صفحه ثبت‌نام** | ![صفحه ثبت‌نام](blito-frontend/public/screenshots/register.png) |
+| **صفحه پروفایل کاربر** | ![پروفایل](blito-frontend/public/screenshots/profile.png) |
+| **صفحه ویرایش پروفایل** | ![ویرایش پروفایل](blito-frontend/public/screenshots/profile-edit.png) |
+| **صفحه نتایج جستجو** | ![نتایج جستجو](blito-frontend/public/screenshots/search-results.png) |
+| **صفحه انتخاب صندلی** | ![انتخاب صندلی](blito-frontend/public/screenshots/seat-selection.png) |
+
+---
 
 ## 📂 ساختار پوشه‌ها (خلاصه)
 ```text
