@@ -17,7 +17,10 @@ import {
   Loader,
   ArrowLeft,
   CreditCard,
-  Users
+  Users,
+  Phone,
+  User,
+  Settings
 } from 'lucide-react';
 
 interface Seat {
@@ -41,23 +44,38 @@ interface TripInfo {
 interface TripDetails {
   id: number;
   route: {
-    origin: {
-      city: { name: string };
-    };
-    destination: {
-      city: { name: string };
-    };
-    company: {
-      name: string;
-    };
+    id: number;
+    origin: string;
+    destination: string;
+    company: string;
+    bus_type: "standard" | "vip" | "luxury";
+    base_price: string;
+    distance_km: number;
+    estimated_duration: string;
+    is_active: boolean;
+    created_at: string;
   };
-  bus: {
-    plate_number: string;
+  fleet: {
+    id: number;
+    company_name: string;
+    bus_number: string;
+    license_plate: string;
+    model: string;
+    brand: string;
+    year: number;
     capacity: number;
+    bus_type: "standard" | "vip" | "luxury";
+    facilities: string;
+    image: string;
+    interior_image: string;
   };
-  departure_time: string;
-  arrival_time: string;
-  price: number;
+  departure_datetime: string;
+  arrival_datetime: string;
+  current_price: string;
+  status: "SCHEDULED" | "BOARDING" | "DEPARTED" | "ARRIVED" | "CANCELLED";
+  driver_name: number;
+  driver_phone: string;
+  created_at: string;
 }
 
 export default function BookingPage() {
@@ -77,9 +95,7 @@ export default function BookingPage() {
   // بارگذاری اطلاعات صندلی‌ها
   const fetchSeats = async () => {
     try {
-      console.log("Fetching seats for trip:", tripId);
       const token = localStorage.getItem('accessToken');
-      console.log("Token from localStorage:", token);
       const response = await fetch(`http://localhost:12000/seat/api/v1/api/seats/trip/${tripId}/`, {
         headers: {
           'Authorization': token ? `Bearer ${token}` : '',
@@ -194,7 +210,50 @@ export default function BookingPage() {
   };
 
   // محاسبه قیمت کل
-  const totalPrice = selectedSeats.length * (tripDetails?.price || 0);
+  const currentPrice = parseFloat(tripDetails?.current_price || '0');
+  const totalPrice = selectedSeats.length * currentPrice;
+
+  // فرمت تاریخ و زمان
+  const formatDateTime = (dateString: string) => {
+    const date = new Date(dateString);
+    const timeOptions: Intl.DateTimeFormatOptions = { 
+      hour: '2-digit', 
+      minute: '2-digit',
+      hour12: false
+    };
+    const dateOptions: Intl.DateTimeFormatOptions = { 
+      year: 'numeric', 
+      month: 'long', 
+      day: 'numeric' 
+    };
+    
+    return {
+      time: date.toLocaleTimeString('fa-IR', timeOptions),
+      date: date.toLocaleDateString('fa-IR', dateOptions)
+    };
+  };
+
+  // ترجمه وضعیت سفر
+  const getStatusText = (status: string) => {
+    const statusMap: { [key: string]: string } = {
+      'SCHEDULED': 'برنامه‌ریزی شده',
+      'BOARDING': 'در حال سوار شدن',
+      'DEPARTED': 'حرکت کرده',
+      'ARRIVED': 'رسیده',
+      'CANCELLED': 'لغو شده'
+    };
+    return statusMap[status] || status;
+  };
+
+  // ترجمه نوع اتوبوس
+  const getBusTypeText = (busType: string) => {
+    const busTypeMap: { [key: string]: string } = {
+      'standard': 'معمولی',
+      'vip': 'VIP',
+      'luxury': 'لوکس'
+    };
+    return busTypeMap[busType] || busType;
+  };
 
   // رندر صندلی
   const renderSeat = (seat: Seat) => {
@@ -284,12 +343,21 @@ export default function BookingPage() {
             {tripDetails && (
               <Card className="shadow-sm">
                 <CardHeader className="pb-4">
-                  <CardTitle className="flex items-center gap-2 text-lg">
-                    <Bus className="w-5 h-5 text-blue-600" />
-                    جزئیات سفر
-                  </CardTitle>
+                  <div className="flex items-center justify-between">
+                    <CardTitle className="flex items-center gap-2 text-lg">
+                      <Bus className="w-5 h-5 text-blue-600" />
+                      جزئیات سفر
+                    </CardTitle>
+                    <Badge 
+                      variant={tripDetails.status === 'SCHEDULED' ? 'default' : 
+                              tripDetails.status === 'CANCELLED' ? 'destructive' : 'secondary'}
+                    >
+                      {getStatusText(tripDetails.status)}
+                    </Badge>
+                  </div>
                 </CardHeader>
                 <CardContent className="space-y-4">
+                  {/* مسیر سفر */}
                   <div className="flex items-center justify-between p-4 bg-blue-50 rounded-lg">
                     <div className="flex items-center gap-2">
                       <MapPin className="w-4 h-4 text-blue-600" />
@@ -297,6 +365,7 @@ export default function BookingPage() {
                     </div>
                     <div className="flex items-center gap-2 text-blue-600">
                       <ArrowLeft className="w-4 h-4" />
+                      <span className="text-xs text-gray-600">{tripDetails.route.distance_km} کیلومتر</span>
                     </div>
                     <div className="flex items-center gap-2">
                       <MapPin className="w-4 h-4 text-blue-600" />
@@ -304,42 +373,127 @@ export default function BookingPage() {
                     </div>
                   </div>
                   
+                  {/* زمان‌های سفر */}
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div className="p-4 bg-green-50 rounded-lg">
+                      <div className="flex items-center gap-2 text-green-600 mb-2">
+                        <Clock className="w-4 h-4" />
+                        <span className="font-medium">زمان حرکت</span>
+                      </div>
+                      <div className="text-sm text-gray-600">
+                        <div className="font-semibold text-green-700 text-lg">
+                          {formatDateTime(tripDetails.departure_datetime).time}
+                        </div>
+                        <div className="text-xs">
+                          {formatDateTime(tripDetails.departure_datetime).date}
+                        </div>
+                      </div>
+                    </div>
+                    <div className="p-4 bg-orange-50 rounded-lg">
+                      <div className="flex items-center gap-2 text-orange-600 mb-2">
+                        <Clock className="w-4 h-4" />
+                        <span className="font-medium">زمان رسیدن</span>
+                      </div>
+                      <div className="text-sm text-gray-600">
+                        <div className="font-semibold text-orange-700 text-lg">
+                          {formatDateTime(tripDetails.arrival_datetime).time}
+                        </div>
+                        <div className="text-xs">
+                          {formatDateTime(tripDetails.arrival_datetime).date}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* مدت زمان سفر */}
+                  <div className="text-center p-3 bg-purple-50 rounded-lg">
+                    <span className="text-purple-700 font-medium">
+                      مدت زمان سفر: {tripDetails.route.estimated_duration}
+                    </span>
+                  </div>
+                  
+                  {/* اطلاعات اتوبوس */}
                   <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
-                    <div className="flex flex-col gap-1 p-3 bg-gray-50 rounded-lg">
-                      <div className="flex items-center gap-2 text-gray-600">
-                        <Clock className="w-4 h-4" />
-                        <span>حرکت</span>
-                      </div>
-                      <span className="font-medium">{new Date(tripDetails.departure_time).toLocaleTimeString('fa-IR', { hour: '2-digit', minute: '2-digit' })}</span>
-                    </div>
-                    <div className="flex flex-col gap-1 p-3 bg-gray-50 rounded-lg">
-                      <div className="flex items-center gap-2 text-gray-600">
-                        <Clock className="w-4 h-4" />
-                        <span>رسیدن</span>
-                      </div>
-                      <span className="font-medium">{new Date(tripDetails.arrival_time).toLocaleTimeString('fa-IR', { hour: '2-digit', minute: '2-digit' })}</span>
-                    </div>
                     <div className="flex flex-col gap-1 p-3 bg-gray-50 rounded-lg">
                       <div className="flex items-center gap-2 text-gray-600">
                         <Bus className="w-4 h-4" />
                         <span>پلاک</span>
                       </div>
-                      <span className="font-medium">{tripDetails.bus.plate_number}</span>
+                      <span className="font-medium">{tripDetails.fleet.license_plate}</span>
+                    </div>
+                    <div className="flex flex-col gap-1 p-3 bg-gray-50 rounded-lg">
+                      <div className="flex items-center gap-2 text-gray-600">
+                        <Settings className="w-4 h-4" />
+                        <span>نوع</span>
+                      </div>
+                      <span className="font-medium">{getBusTypeText(tripDetails.fleet.bus_type)}</span>
                     </div>
                     <div className="flex flex-col gap-1 p-3 bg-gray-50 rounded-lg">
                       <div className="flex items-center gap-2 text-gray-600">
                         <Users className="w-4 h-4" />
-                        <span>شرکت</span>
+                        <span>ظرفیت</span>
                       </div>
-                      <span className="font-medium text-xs">{tripDetails.route.company.name}</span>
+                      <span className="font-medium">{tripDetails.fleet.capacity} نفر</span>
+                    </div>
+                    <div className="flex flex-col gap-1 p-3 bg-gray-50 rounded-lg">
+                      <div className="flex items-center gap-2 text-gray-600">
+                        <Phone className="w-4 h-4" />
+                        <span>راننده</span>
+                      </div>
+                      <span className="font-medium text-xs">{tripDetails.driver_phone}</span>
+                    </div>
+                  </div>
+
+                  {/* اطلاعات شرکت */}
+                  <div className="p-4 bg-indigo-50 rounded-lg">
+                    <div className="flex items-center justify-between">
+                      <div>
+                        <span className="text-sm text-indigo-600">شرکت حمل و نقل</span>
+                        <div className="font-semibold text-indigo-800">{tripDetails.route.company}</div>
+                      </div>
+                      <div className="text-right">
+                        <span className="text-sm text-indigo-600">مدل اتوبوس</span>
+                        <div className="font-semibold text-indigo-800">
+                          {tripDetails.fleet.brand} {tripDetails.fleet.model} ({tripDetails.fleet.year})
+                        </div>
+                      </div>
                     </div>
                   </div>
                   
+                  {/* قیمت */}
                   <div className="text-center p-4 bg-green-50 rounded-lg">
                     <span className="text-lg font-semibold text-green-700">
-                      قیمت هر صندلی:  {tripDetails?.price != null ? tripDetails.price.toLocaleString() : '---'}  تومان
+                      قیمت هر صندلی: {currentPrice.toLocaleString()} تومان
                     </span>
                   </div>
+                {/* امکانات */}
+                {tripDetails.fleet.facilities?.length > 0 && (
+                  <div className="p-4 bg-yellow-50 rounded-lg">
+                    <div className="text-sm text-yellow-600 mb-3 font-semibold">امکانات</div>
+                    <div className="flex flex-wrap gap-2">
+                      {tripDetails.fleet.facilities.map((facility, index) => {
+                        const icons = {
+                          'وای‌فای رایگان': '📶',
+                          'کولر': '❄️',
+                          'تلویزیون': '📺',
+                          'شارژر موبایل': '🔌',
+                          'پتو': '🛏️',
+                          'سرویس غذا': '🍽️',
+                        };
+                        return (
+                          <span
+                            key={index}
+                            className="inline-flex items-center gap-1 px-3 py-1 bg-yellow-100 text-yellow-800 text-sm rounded-full border border-yellow-200"
+                          >
+                            <span>{icons[facility] || '✨'}</span>
+                            {facility}
+                          </span>
+                        );
+                      })}
+                    </div>
+                  </div>
+                )}
+
                 </CardContent>
               </Card>
             )}
@@ -434,12 +588,12 @@ export default function BookingPage() {
                       </div>
                       <div className="flex justify-between text-sm">
                         <span className="text-gray-600">قیمت هر صندلی:</span>
-                        <span className="font-medium"> {tripDetails?.price != null ? tripDetails.price.toLocaleString() : '---'} تومان</span>
+                        <span className="font-medium">{currentPrice.toLocaleString()} تومان</span>
                       </div>
                       <Separator />
                       <div className="flex justify-between font-semibold text-lg">
                         <span>مجموع:</span>
-                        <span className="text-blue-600"> {tripDetails?.price != null ? tripDetails.price.toLocaleString() : '---'} تومان</span>
+                        <span className="text-blue-600">{totalPrice.toLocaleString()} تومان</span>
                       </div>
                     </div>
 
