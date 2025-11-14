@@ -14,6 +14,8 @@ export default function LoginPage() {
     const [password, setPassword] = useState('')
     const [error, setError] = useState('')
 
+    console.log({ phone, password });
+
     // 👇 اگر کاربر قبلاً لاگین کرده، دیگه نیازی نیست دوباره لاگین کنه
     useEffect(() => {
         const token = localStorage.getItem('accessToken')
@@ -28,10 +30,19 @@ export default function LoginPage() {
 
         try {
             // 📡 ارسال درخواست لاگین به API
-            const response = await axios.post('http://localhost:12000/accounts/api/v1/auth/login/', {
+            const response = await axios.post(
+            'http://localhost:8000/accounts/api/v1/auth/login/',
+            {
                 phone,
                 password,
-            })
+            },
+            {
+                headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json",
+                },
+            }
+            );
 
             const { access, refresh } = response.data
 

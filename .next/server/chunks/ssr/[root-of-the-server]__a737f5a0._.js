@@ -735,7 +735,7 @@ function HomePage() {
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(()=>{
         const fetchCities = async ()=>{
             try {
-                const res = await fetch('http://localhost:12000/city/api/v1/cities/');
+                const res = await fetch('http://localhost:8000/city/api/v1/cities/');
                 const data = await res.json();
                 const results = Array.isArray(data) ? data : data?.results ?? [];
                 setCities(results);
@@ -749,7 +749,7 @@ function HomePage() {
         if (!fromCity || !toCity) return;
         setLoading(true);
         try {
-            const url = new URL('http://localhost:12000/trips/api/v1/trips/');
+            const url = new URL('http://localhost:8000/trips/api/v1/trips/');
             url.searchParams.append('route__origin', fromCity);
             url.searchParams.append('route__destination', toCity);
             url.searchParams.append('ordering', ordering); // ← مرتب‌سازی
@@ -765,7 +765,7 @@ function HomePage() {
             // Fetch additional route details for each trip
             const tripsWithRouteInfo = await Promise.all(results.map(async (trip)=>{
                 try {
-                    const routeRes = await fetch(`http://localhost:12000/routes/api/v1/routes/${trip.route}/`);
+                    const routeRes = await fetch(`http://localhost:8000/routes/api/v1/routes/${trip.route}/`);
                     const routeData = await routeRes.json();
                     return {
                         ...trip,

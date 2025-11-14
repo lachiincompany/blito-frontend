@@ -51,7 +51,7 @@ export default function EditProfilePage() {
 
     const fetchProfile = async () => {
       try {
-        const res = await axios.get('http://localhost:12000/accounts/api/v1/auth/profile/', {
+        const res = await axios.get('http://localhost:8000/accounts/api/v1/auth/profile/', {
           headers: { Authorization: `Bearer ${token}` },
         });
         setProfile(res.data);
@@ -113,7 +113,7 @@ export default function EditProfilePage() {
         data.append('profile_picture', profilePictureFile);
       }
 
-      await axios.put('http://localhost:12000/accounts/api/v1/auth/profile/', data, {
+      await axios.put('http://localhost:8000/accounts/api/v1/auth/profile/', data, {
         headers: {
           Authorization: `Bearer ${token}`,
           'Content-Type': 'multipart/form-data',

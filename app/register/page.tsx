@@ -113,7 +113,7 @@ export default function RegisterPage() {
 
         try {
             // 📡 ارسال درخواست ثبت نام به API
-            const response = await axios.post('http://localhost:12000/accounts/api/v1/auth/register/', {
+            const response = await axios.post('http://localhost:8000/accounts/api/v1/auth/register/', {
                 phone,
                 full_name: fullName,
                 email,

@@ -1,20 +1,23 @@
 {
   "pages": {
     "/dashboard/page": [
-      "static/chunks/node_modules_next_dist_1a6ee436._.js",
-      "static/chunks/app_favicon_ico_mjs_659ce808._.js",
-      "static/chunks/[root-of-the-server]__46dc359f._.css",
-      "static/chunks/app_layout_tsx_c0237562._.js",
-      "static/chunks/node_modules_d7a0c19a._.js",
-      "static/chunks/_f2fa0abf._.js",
-      "static/chunks/app_dashboard_page_tsx_e926ee60._.js",
-      "static/chunks/[turbopack]_browser_dev_hmr-client_hmr-client_ts_fd44f5a4._.js",
-      "static/chunks/node_modules_next_dist_compiled_2ce9398a._.js",
-      "static/chunks/node_modules_next_dist_client_8f19e6fb._.js",
-      "static/chunks/node_modules_next_dist_2ecbf5fa._.js",
-      "static/chunks/node_modules_@swc_helpers_cjs_00636ac3._.js",
-      "static/chunks/_e69f0d32._.js",
-      "static/chunks/_93808211._.js"
+      "static/chunks/86e87_next_dist_ab59542a._.js",
+      "static/chunks/blito-frontend_app_favicon_ico_mjs_22bc86b9._.js",
+      "static/chunks/[root-of-the-server]__6a747e3a._.css",
+      "static/chunks/blito-frontend_app_layout_tsx_8765de0e._.js",
+      "static/chunks/86e87_next_dist_client_components_builtin_global-error_2b2beeb8.js",
+      "static/chunks/86e87_a5994fa6._.js",
+      "static/chunks/blito-frontend_0d2f6ac1._.js",
+      "static/chunks/blito-frontend_app_dashboard_page_tsx_2b2beeb8._.js",
+      "static/chunks/[turbopack]_browser_dev_hmr-client_hmr-client_ts_261791f9._.js",
+      "static/chunks/86e87_next_dist_compiled_react-dom_c92b09b0._.js",
+      "static/chunks/86e87_next_dist_compiled_next-devtools_index_8d5e77d6.js",
+      "static/chunks/86e87_next_dist_compiled_15d757d5._.js",
+      "static/chunks/86e87_next_dist_client_d8da6494._.js",
+      "static/chunks/86e87_next_dist_313d3cae._.js",
+      "static/chunks/86e87_@swc_helpers_cjs_e9c45734._.js",
+      "static/chunks/blito-frontend_a0ff3932._.js",
+      "static/chunks/turbopack-blito-frontend_973930f1._.js"
     ]
   }
 }

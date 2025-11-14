@@ -811,7 +811,7 @@ function HomePage() {
             const fetchCities = {
                 "HomePage.useEffect.fetchCities": async ()=>{
                     try {
-                        const res = await fetch('http://localhost:12000/city/api/v1/cities/');
+                        const res = await fetch('http://localhost:8000/city/api/v1/cities/');
                         const data = await res.json();
                         var _data_results;
                         const results = Array.isArray(data) ? data : (_data_results = data === null || data === void 0 ? void 0 : data.results) !== null && _data_results !== void 0 ? _data_results : [];
@@ -828,7 +828,7 @@ function HomePage() {
         if (!fromCity || !toCity) return;
         setLoading(true);
         try {
-            const url = new URL('http://localhost:12000/trips/api/v1/trips/');
+            const url = new URL('http://localhost:8000/trips/api/v1/trips/');
             url.searchParams.append('route__origin', fromCity);
             url.searchParams.append('route__destination', toCity);
             url.searchParams.append('ordering', ordering); // ← مرتب‌سازی
@@ -845,7 +845,7 @@ function HomePage() {
             // Fetch additional route details for each trip
             const tripsWithRouteInfo = await Promise.all(results.map(async (trip)=>{
                 try {
-                    const routeRes = await fetch("http://localhost:12000/routes/api/v1/routes/".concat(trip.route, "/"));
+                    const routeRes = await fetch("http://localhost:8000/routes/api/v1/routes/".concat(trip.route, "/"));
                     const routeData = await routeRes.json();
                     return {
                         ...trip,

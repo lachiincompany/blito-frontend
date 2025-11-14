@@ -99,7 +99,7 @@ export default function HomePage() {
   useEffect(() => {
     const fetchCities = async () => {
       try {
-        const res = await fetch('http://localhost:12000/city/api/v1/cities/');
+        const res = await fetch('http://localhost:8000/city/api/v1/cities/');
         const data = await res.json();
         const results: City[] = Array.isArray(data) ? data : (data?.results ?? []);
         setCities(results);
@@ -115,7 +115,7 @@ export default function HomePage() {
     
     setLoading(true);
     try {
-      const url = new URL('http://localhost:12000/trips/api/v1/trips/');
+      const url = new URL('http://localhost:8000/trips/api/v1/trips/');
       url.searchParams.append('route__origin', fromCity);
       url.searchParams.append('route__destination', toCity);
       url.searchParams.append('ordering', ordering); // ← مرتب‌سازی
@@ -134,7 +134,7 @@ export default function HomePage() {
       const tripsWithRouteInfo = await Promise.all(
         results.map(async (trip) => {
           try {
-            const routeRes = await fetch(`http://localhost:12000/routes/api/v1/routes/${trip.route}/`);
+            const routeRes = await fetch(`http://localhost:8000/routes/api/v1/routes/${trip.route}/`);
             const routeData = await routeRes.json();
             return {
               ...trip,

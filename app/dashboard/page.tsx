@@ -34,7 +34,7 @@ export default function DashboardPage() {
 
     const fetchProfile = async () => {
       try {
-        const res = await axios.get('http://localhost:12000/accounts/api/v1/auth/profile/', {
+        const res = await axios.get('http://localhost:8000/accounts/api/v1/auth/profile/', {
           headers: { Authorization: `Bearer ${token}` },
         });
         setProfile(res.data);
