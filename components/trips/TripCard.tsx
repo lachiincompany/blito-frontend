@@ -19,25 +19,25 @@ type TripStatus = 'SCHEDULED' | 'DEPARTED' | 'ARRIVED' | 'CANCELLED';
 
 type TripType = {
   id: number;
-  route: number;
-  bus: number;
-  departure_datetime: string;
-  arrival_datetime: string;
-  current_price: string;
-  status: TripStatus;
-  driver_name: number;
-  driver_phone: string;
-  created_at: string;
-  route_info?: {
+  route: {
     origin: string;
     destination: string;
     company: string;
     bus_type: 'standard' | 'luxury' | 'vip';
     distance_km: number;
   };
+  fleet: {
+    model: string;
+    brand: string;
+    capacity: number;
+  };
+  departure_datetime: string;
+  arrival_datetime: string;
+  current_price: string;
+  status: TripStatus;
+  driver_name: number;
+  created_at: string;
 };
-
-/* --- توابع کمکی فقط مخصوص همین کامپوننت --- */
 
 const getBusTypeLabel = (type: string) => {
   switch (type) {
@@ -65,7 +65,7 @@ const getBusTypeColor = (type: string) => {
   }
 };
 
-const getStatusLabel = (status: TripStatus | string) => {
+const getStatusLabel = (status: TripStatus) => {
   switch (status) {
     case 'SCHEDULED':
       return 'برنامه‌ریزی شده';
@@ -75,12 +75,10 @@ const getStatusLabel = (status: TripStatus | string) => {
       return 'رسیده';
     case 'CANCELLED':
       return 'لغو شده';
-    default:
-      return status;
   }
 };
 
-const getStatusColor = (status: TripStatus | string) => {
+const getStatusColor = (status: TripStatus) => {
   switch (status) {
     case 'SCHEDULED':
       return 'bg-green-100 text-green-700 border-green-200';
@@ -90,8 +88,6 @@ const getStatusColor = (status: TripStatus | string) => {
       return 'bg-gray-100 text-gray-700 border-gray-200';
     case 'CANCELLED':
       return 'bg-red-100 text-red-700 border-red-200';
-    default:
-      return 'bg-gray-100 text-gray-700';
   }
 };
 
@@ -109,110 +105,90 @@ const formatDateTime = (dateTimeString: string) => {
 const calculateDuration = (departure: string, arrival: string) => {
   const dep = new Date(departure);
   const arr = new Date(arrival);
-  const diffMs = arr.getTime() - dep.getTime();
-  const diffHours = Math.floor(diffMs / (1000 * 60 * 60));
-  const diffMins = Math.floor((diffMs % (1000 * 60 * 60)) / (1000 * 60));
-  return `${diffHours}:${diffMins.toString().padStart(2, '0')}`;
+  const diff = arr.getTime() - dep.getTime();
+  const h = Math.floor(diff / 3600000);
+  const m = Math.floor((diff % 3600000) / 60000);
+  return `${h}:${m.toString().padStart(2, '0')}`;
 };
 
-type TripCardProps = {
-  trip: TripType;
-  onBook: (id: number) => void;
-};
-
-export default function TripCard({ trip, onBook }: TripCardProps) {
-  const departureDateTime = formatDateTime(trip.departure_datetime);
-  const arrivalDateTime = formatDateTime(trip.arrival_datetime);
+export default function TripCard({ trip, onBook }: { trip: TripType; onBook: (id: number) => void }) {
+  const dep = formatDateTime(trip.departure_datetime);
+  const arr = formatDateTime(trip.arrival_datetime);
   const duration = calculateDuration(trip.departure_datetime, trip.arrival_datetime);
 
   return (
-    <Card className="bg-white/80 backdrop-blur-sm border border-slate-100 shadow-md hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 group rounded-2xl">
-      <CardContent className="p-5 sm:p-6">
-        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
-          <div className="flex-1 space-y-3">
-            <div className="flex flex-wrap items-center gap-3">
-              <div className="flex items-center gap-2">
-                <MapPin className="w-4 h-4 text-green-600" />
-                <span className="font-medium text-slate-800">
-                  {trip.route_info?.origin || 'نامشخص'}
-                </span>
-              </div>
-              <ArrowRightLeft className="w-4 h-4 text-slate-400" />
-              <div className="flex items-center gap-2">
-                <MapPin className="w-4 h-4 text-red-600" />
-                <span className="font-medium text-slate-800">
-                  {trip.route_info?.destination || 'نامشخص'}
-                </span>
-              </div>
+    <Card className="bg-white/80 backdrop-blur-sm border border-slate-100 shadow-md hover:shadow-xl rounded-2xl">
+      <CardContent className="p-6">
+        <div className="flex flex-col lg:flex-row justify-between gap-4">
+
+          {/* مسیر */}
+          <div className="space-y-3">
+            <div className="flex items-center gap-2 flex-wrap">
+              <MapPin className="text-green-600 w-4 h-4" />
+              <span>{trip.route.origin}</span>
+
+              <ArrowRightLeft className="text-gray-400 w-4 h-4 mx-2" />
+
+              <MapPin className="text-red-600 w-4 h-4" />
+              <span>{trip.route.destination}</span>
             </div>
 
-            <div className="flex flex-wrap items-center gap-4 text-sm text-slate-600">
-              <div className="flex items-center gap-1">
+            <div className="flex items-center gap-3 text-sm text-slate-600 flex-wrap">
+              <span className="flex items-center gap-1">
                 <Bus className="w-4 h-4" />
-                <span>{trip.route_info?.company || 'نامشخص'}</span>
-              </div>
-              <div className="flex items-center gap-1">
+                {trip.route.company}
+              </span>
+
+              <span className="flex items-center gap-1">
                 <Clock className="w-4 h-4" />
-                <span>{duration} ساعت</span>
-              </div>
-              {trip.route_info?.distance_km && (
-                <div className="flex items-center gap-1">
-                  <Route className="w-4 h-4" />
-                  <span>{trip.route_info.distance_km} کیلومتر</span>
-                </div>
-              )}
+                {duration} ساعت
+              </span>
+
+              <span className="flex items-center gap-1">
+                <Route className="w-4 h-4" />
+                {trip.route.distance_km} کیلومتر
+              </span>
             </div>
 
-            <div className="flex flex-wrap items-center gap-3 text-sm">
+            <div className="flex gap-3 text-sm">
               <div className="bg-green-50 px-3 py-1 rounded-lg">
-                <span className="text-green-700 font-medium">حرکت: </span>
-                <span className="text-slate-700">{departureDateTime.time}</span>
+                حرکت: {dep.time}
               </div>
               <div className="bg-blue-50 px-3 py-1 rounded-lg">
-                <span className="text-blue-700 font-medium">رسیدن: </span>
-                <span className="text-slate-700">{arrivalDateTime.time}</span>
+                رسیدن: {arr.time}
               </div>
             </div>
           </div>
 
-          <Separator orientation="vertical" className="hidden lg:block h-20 mx-4" />
+          <Separator orientation="vertical" className="hidden lg:block h-20" />
 
-          <div className="flex items-center justify-between lg:justify-end gap-4 lg:min-w-[280px]">
-            <div className="flex flex-col gap-2">
-              <div className="flex flex-wrap gap-2">
-                {trip.route_info?.bus_type && (
-                  <Badge
-                    className={`${getBusTypeColor(
-                      trip.route_info.bus_type,
-                    )} border`}
-                  >
-                    {getBusTypeLabel(trip.route_info.bus_type)}
-                  </Badge>
-                )}
-                <Badge className={`${getStatusColor(trip.status)} border`}>
+          {/* قیمت و رزرو */}
+          <div className="flex items-center justify-between lg:flex-col lg:items-end lg:gap-3">
+
+            <div>
+              <div className="flex gap-2">
+                <Badge className={getBusTypeColor(trip.route.bus_type)}>
+                  {getBusTypeLabel(trip.route.bus_type)}
+                </Badge>
+
+                <Badge className={getStatusColor(trip.status)}>
                   {getStatusLabel(trip.status)}
                 </Badge>
               </div>
 
-              <div className="text-left mt-1">
-                <div className="flex items-baseline gap-1 text-2xl font-bold text-slate-800">
-                  <DollarSign className="w-5 h-5" />
-                  <span>
-                    {parseFloat(trip.current_price).toLocaleString('fa-IR')}
-                  </span>
-                  <span className="text-xs font-normal text-slate-500">تومان</span>
-                </div>
+              <div className="text-2xl font-bold mt-2">
+                {parseFloat(trip.current_price).toLocaleString('fa-IR')} تومان
               </div>
             </div>
 
             <Button
-              className="bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white rounded-2xl px-5"
+              className="bg-green-600 hover:bg-green-700 rounded-2xl px-6 text-white"
               onClick={() => onBook(trip.id)}
             >
-              <Calendar className="w-4 h-4 ml-2" />
-              رزرو
+              <Calendar className="ml-2 w-4 h-4" /> رزرو
             </Button>
           </div>
+
         </div>
       </CardContent>
     </Card>

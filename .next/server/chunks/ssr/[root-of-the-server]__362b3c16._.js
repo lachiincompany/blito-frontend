@@ -832,7 +832,7 @@ function SearchSection({ cities, fromCity, toCity, selectedDate, loading, onFrom
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         className: "w-full max-w-6xl mx-auto px-4",
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Card"], {
-            className: "border-0 shadow-2xl bg-white/95 backdrop-blur-xl rounded-3xl overflow-visible relative z-10 ring-1 ring-slate-900/5",
+            className: "border-0 shadow-2xl bg-white/95 backdrop-blur-xl rounded-3xl ring-1 ring-slate-900/5",
             children: [
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["CardHeader"], {
                     className: "pb-2 pt-6 px-6",
@@ -845,12 +845,12 @@ function SearchSection({ cities, fromCity, toCity, selectedDate, loading, onFrom
                                     className: "w-5 h-5 text-blue-600"
                                 }, void 0, false, {
                                     fileName: "[project]/blito-frontend/components/home/SearchSection.tsx",
-                                    lineNumber: 56,
+                                    lineNumber: 57,
                                     columnNumber: 15
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/blito-frontend/components/home/SearchSection.tsx",
-                                lineNumber: 55,
+                                lineNumber: 56,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
@@ -858,18 +858,18 @@ function SearchSection({ cities, fromCity, toCity, selectedDate, loading, onFrom
                                 children: "جستجوی بلیط سفر"
                             }, void 0, false, {
                                 fileName: "[project]/blito-frontend/components/home/SearchSection.tsx",
-                                lineNumber: 58,
+                                lineNumber: 59,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/blito-frontend/components/home/SearchSection.tsx",
-                        lineNumber: 54,
+                        lineNumber: 55,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/blito-frontend/components/home/SearchSection.tsx",
-                    lineNumber: 53,
+                    lineNumber: 54,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["CardContent"], {
@@ -886,7 +886,7 @@ function SearchSection({ cities, fromCity, toCity, selectedDate, loading, onFrom
                                             children: "مبدا حرکت"
                                         }, void 0, false, {
                                             fileName: "[project]/blito-frontend/components/home/SearchSection.tsx",
-                                            lineNumber: 69,
+                                            lineNumber: 70,
                                             columnNumber: 21
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -898,12 +898,12 @@ function SearchSection({ cities, fromCity, toCity, selectedDate, loading, onFrom
                                                         className: "w-5 h-5"
                                                     }, void 0, false, {
                                                         fileName: "[project]/blito-frontend/components/home/SearchSection.tsx",
-                                                        lineNumber: 74,
+                                                        lineNumber: 75,
                                                         columnNumber: 25
                                                     }, this)
                                                 }, void 0, false, {
                                                     fileName: "[project]/blito-frontend/components/home/SearchSection.tsx",
-                                                    lineNumber: 73,
+                                                    lineNumber: 74,
                                                     columnNumber: 21
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Select"], {
@@ -916,12 +916,12 @@ function SearchSection({ cities, fromCity, toCity, selectedDate, loading, onFrom
                                                                 placeholder: "انتخاب شهر مبدا"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/blito-frontend/components/home/SearchSection.tsx",
-                                                                lineNumber: 78,
+                                                                lineNumber: 79,
                                                                 columnNumber: 25
                                                             }, this)
                                                         }, void 0, false, {
                                                             fileName: "[project]/blito-frontend/components/home/SearchSection.tsx",
-                                                            lineNumber: 77,
+                                                            lineNumber: 78,
                                                             columnNumber: 25
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SelectContent"], {
@@ -931,30 +931,30 @@ function SearchSection({ cities, fromCity, toCity, selectedDate, loading, onFrom
                                                                     children: city.name
                                                                 }, city.id, false, {
                                                                     fileName: "[project]/blito-frontend/components/home/SearchSection.tsx",
-                                                                    lineNumber: 82,
+                                                                    lineNumber: 83,
                                                                     columnNumber: 29
                                                                 }, this))
                                                         }, void 0, false, {
                                                             fileName: "[project]/blito-frontend/components/home/SearchSection.tsx",
-                                                            lineNumber: 80,
+                                                            lineNumber: 81,
                                                             columnNumber: 25
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/blito-frontend/components/home/SearchSection.tsx",
-                                                    lineNumber: 76,
+                                                    lineNumber: 77,
                                                     columnNumber: 21
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/blito-frontend/components/home/SearchSection.tsx",
-                                            lineNumber: 72,
+                                            lineNumber: 73,
                                             columnNumber: 21
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/blito-frontend/components/home/SearchSection.tsx",
-                                    lineNumber: 68,
+                                    lineNumber: 69,
                                     columnNumber: 17
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -969,17 +969,17 @@ function SearchSection({ cities, fromCity, toCity, selectedDate, loading, onFrom
                                             className: "w-4 h-4 transition-transform duration-500 group-hover:rotate-180"
                                         }, void 0, false, {
                                             fileName: "[project]/blito-frontend/components/home/SearchSection.tsx",
-                                            lineNumber: 101,
+                                            lineNumber: 102,
                                             columnNumber: 21
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/blito-frontend/components/home/SearchSection.tsx",
-                                        lineNumber: 94,
+                                        lineNumber: 95,
                                         columnNumber: 21
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/blito-frontend/components/home/SearchSection.tsx",
-                                    lineNumber: 93,
+                                    lineNumber: 94,
                                     columnNumber: 17
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -990,7 +990,7 @@ function SearchSection({ cities, fromCity, toCity, selectedDate, loading, onFrom
                                             children: "مقصد سفر"
                                         }, void 0, false, {
                                             fileName: "[project]/blito-frontend/components/home/SearchSection.tsx",
-                                            lineNumber: 107,
+                                            lineNumber: 108,
                                             columnNumber: 21
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1002,12 +1002,12 @@ function SearchSection({ cities, fromCity, toCity, selectedDate, loading, onFrom
                                                         className: "w-5 h-5"
                                                     }, void 0, false, {
                                                         fileName: "[project]/blito-frontend/components/home/SearchSection.tsx",
-                                                        lineNumber: 112,
+                                                        lineNumber: 113,
                                                         columnNumber: 25
                                                     }, this)
                                                 }, void 0, false, {
                                                     fileName: "[project]/blito-frontend/components/home/SearchSection.tsx",
-                                                    lineNumber: 111,
+                                                    lineNumber: 112,
                                                     columnNumber: 21
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Select"], {
@@ -1020,12 +1020,12 @@ function SearchSection({ cities, fromCity, toCity, selectedDate, loading, onFrom
                                                                 placeholder: "انتخاب شهر مقصد"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/blito-frontend/components/home/SearchSection.tsx",
-                                                                lineNumber: 116,
+                                                                lineNumber: 117,
                                                                 columnNumber: 25
                                                             }, this)
                                                         }, void 0, false, {
                                                             fileName: "[project]/blito-frontend/components/home/SearchSection.tsx",
-                                                            lineNumber: 115,
+                                                            lineNumber: 116,
                                                             columnNumber: 25
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SelectContent"], {
@@ -1035,30 +1035,30 @@ function SearchSection({ cities, fromCity, toCity, selectedDate, loading, onFrom
                                                                     children: city.name
                                                                 }, city.id, false, {
                                                                     fileName: "[project]/blito-frontend/components/home/SearchSection.tsx",
-                                                                    lineNumber: 120,
+                                                                    lineNumber: 121,
                                                                     columnNumber: 29
                                                                 }, this))
                                                         }, void 0, false, {
                                                             fileName: "[project]/blito-frontend/components/home/SearchSection.tsx",
-                                                            lineNumber: 118,
+                                                            lineNumber: 119,
                                                             columnNumber: 25
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/blito-frontend/components/home/SearchSection.tsx",
-                                                    lineNumber: 114,
+                                                    lineNumber: 115,
                                                     columnNumber: 21
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/blito-frontend/components/home/SearchSection.tsx",
-                                            lineNumber: 110,
+                                            lineNumber: 111,
                                             columnNumber: 21
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/blito-frontend/components/home/SearchSection.tsx",
-                                    lineNumber: 106,
+                                    lineNumber: 107,
                                     columnNumber: 17
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1069,7 +1069,7 @@ function SearchSection({ cities, fromCity, toCity, selectedDate, loading, onFrom
                                             children: "تاریخ حرکت"
                                         }, void 0, false, {
                                             fileName: "[project]/blito-frontend/components/home/SearchSection.tsx",
-                                            lineNumber: 131,
+                                            lineNumber: 132,
                                             columnNumber: 21
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1081,12 +1081,12 @@ function SearchSection({ cities, fromCity, toCity, selectedDate, loading, onFrom
                                                         className: "w-5 h-5"
                                                     }, void 0, false, {
                                                         fileName: "[project]/blito-frontend/components/home/SearchSection.tsx",
-                                                        lineNumber: 136,
+                                                        lineNumber: 137,
                                                         columnNumber: 25
                                                     }, this)
                                                 }, void 0, false, {
                                                     fileName: "[project]/blito-frontend/components/home/SearchSection.tsx",
-                                                    lineNumber: 135,
+                                                    lineNumber: 136,
                                                     columnNumber: 21
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1096,30 +1096,30 @@ function SearchSection({ cities, fromCity, toCity, selectedDate, loading, onFrom
                                                         onChange: onDateChange
                                                     }, void 0, false, {
                                                         fileName: "[project]/blito-frontend/components/home/SearchSection.tsx",
-                                                        lineNumber: 139,
+                                                        lineNumber: 140,
                                                         columnNumber: 25
                                                     }, this)
                                                 }, void 0, false, {
                                                     fileName: "[project]/blito-frontend/components/home/SearchSection.tsx",
-                                                    lineNumber: 138,
+                                                    lineNumber: 139,
                                                     columnNumber: 21
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/blito-frontend/components/home/SearchSection.tsx",
-                                            lineNumber: 134,
+                                            lineNumber: 135,
                                             columnNumber: 21
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/blito-frontend/components/home/SearchSection.tsx",
-                                    lineNumber: 130,
+                                    lineNumber: 131,
                                     columnNumber: 17
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/blito-frontend/components/home/SearchSection.tsx",
-                            lineNumber: 65,
+                            lineNumber: 66,
                             columnNumber: 17
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1137,7 +1137,7 @@ function SearchSection({ cities, fromCity, toCity, selectedDate, loading, onFrom
                                                     className: "animate-spin rounded-full h-5 w-5 border-2 border-white/30 border-t-white"
                                                 }, void 0, false, {
                                                     fileName: "[project]/blito-frontend/components/home/SearchSection.tsx",
-                                                    lineNumber: 159,
+                                                    lineNumber: 160,
                                                     columnNumber: 21
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1145,7 +1145,7 @@ function SearchSection({ cities, fromCity, toCity, selectedDate, loading, onFrom
                                                     children: "در حال جستجو..."
                                                 }, void 0, false, {
                                                     fileName: "[project]/blito-frontend/components/home/SearchSection.tsx",
-                                                    lineNumber: 160,
+                                                    lineNumber: 161,
                                                     columnNumber: 21
                                                 }, this)
                                             ]
@@ -1155,7 +1155,7 @@ function SearchSection({ cities, fromCity, toCity, selectedDate, loading, onFrom
                                                     className: "w-5 h-5"
                                                 }, void 0, false, {
                                                     fileName: "[project]/blito-frontend/components/home/SearchSection.tsx",
-                                                    lineNumber: 164,
+                                                    lineNumber: 165,
                                                     columnNumber: 21
                                                 }, this),
                                                 "جستجوی بلیط"
@@ -1163,31 +1163,31 @@ function SearchSection({ cities, fromCity, toCity, selectedDate, loading, onFrom
                                         }, void 0, true)
                                     }, void 0, false, {
                                         fileName: "[project]/blito-frontend/components/home/SearchSection.tsx",
-                                        lineNumber: 156,
+                                        lineNumber: 157,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                         className: "absolute inset-0 -translate-x-full group-hover:animate-[shimmer_2s_infinite] bg-gradient-to-r from-transparent via-white/20 to-transparent z-0"
                                     }, void 0, false, {
                                         fileName: "[project]/blito-frontend/components/home/SearchSection.tsx",
-                                        lineNumber: 171,
+                                        lineNumber: 172,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/blito-frontend/components/home/SearchSection.tsx",
-                                lineNumber: 151,
+                                lineNumber: 152,
                                 columnNumber: 13
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/blito-frontend/components/home/SearchSection.tsx",
-                            lineNumber: 150,
+                            lineNumber: 151,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/blito-frontend/components/home/SearchSection.tsx",
-                    lineNumber: 64,
+                    lineNumber: 65,
                     columnNumber: 9
                 }, this)
             ]
@@ -1295,7 +1295,6 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_mo
 var __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$bus$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Bus$3e$__ = __turbopack_context__.i("[project]/blito-frontend/node_modules/lucide-react/dist/esm/icons/bus.js [app-ssr] (ecmascript) <export default as Bus>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$clock$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Clock$3e$__ = __turbopack_context__.i("[project]/blito-frontend/node_modules/lucide-react/dist/esm/icons/clock.js [app-ssr] (ecmascript) <export default as Clock>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$route$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Route$3e$__ = __turbopack_context__.i("[project]/blito-frontend/node_modules/lucide-react/dist/esm/icons/route.js [app-ssr] (ecmascript) <export default as Route>");
-var __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$dollar$2d$sign$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__DollarSign$3e$__ = __turbopack_context__.i("[project]/blito-frontend/node_modules/lucide-react/dist/esm/icons/dollar-sign.js [app-ssr] (ecmascript) <export default as DollarSign>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$calendar$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Calendar$3e$__ = __turbopack_context__.i("[project]/blito-frontend/node_modules/lucide-react/dist/esm/icons/calendar.js [app-ssr] (ecmascript) <export default as Calendar>");
 'use client';
 ;
@@ -1304,7 +1303,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_mo
 ;
 ;
 ;
-/* --- توابع کمکی فقط مخصوص همین کامپوننت --- */ const getBusTypeLabel = (type)=>{
+const getBusTypeLabel = (type)=>{
     switch(type){
         case 'standard':
             return 'معمولی';
@@ -1338,8 +1337,6 @@ const getStatusLabel = (status)=>{
             return 'رسیده';
         case 'CANCELLED':
             return 'لغو شده';
-        default:
-            return status;
     }
 };
 const getStatusColor = (status)=>{
@@ -1352,8 +1349,6 @@ const getStatusColor = (status)=>{
             return 'bg-gray-100 text-gray-700 border-gray-200';
         case 'CANCELLED':
             return 'bg-red-100 text-red-700 border-red-200';
-        default:
-            return 'bg-gray-100 text-gray-700';
     }
 };
 const formatDateTime = (dateTimeString)=>{
@@ -1369,359 +1364,261 @@ const formatDateTime = (dateTimeString)=>{
 const calculateDuration = (departure, arrival)=>{
     const dep = new Date(departure);
     const arr = new Date(arrival);
-    const diffMs = arr.getTime() - dep.getTime();
-    const diffHours = Math.floor(diffMs / (1000 * 60 * 60));
-    const diffMins = Math.floor(diffMs % (1000 * 60 * 60) / (1000 * 60));
-    return `${diffHours}:${diffMins.toString().padStart(2, '0')}`;
+    const diff = arr.getTime() - dep.getTime();
+    const h = Math.floor(diff / 3600000);
+    const m = Math.floor(diff % 3600000 / 60000);
+    return `${h}:${m.toString().padStart(2, '0')}`;
 };
 function TripCard({ trip, onBook }) {
-    const departureDateTime = formatDateTime(trip.departure_datetime);
-    const arrivalDateTime = formatDateTime(trip.arrival_datetime);
+    const dep = formatDateTime(trip.departure_datetime);
+    const arr = formatDateTime(trip.arrival_datetime);
     const duration = calculateDuration(trip.departure_datetime, trip.arrival_datetime);
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Card"], {
-        className: "bg-white/80 backdrop-blur-sm border border-slate-100 shadow-md hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 group rounded-2xl",
+        className: "bg-white/80 backdrop-blur-sm border border-slate-100 shadow-md hover:shadow-xl rounded-2xl",
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["CardContent"], {
-            className: "p-5 sm:p-6",
+            className: "p-6",
             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "flex flex-col lg:flex-row lg:items-center justify-between gap-4",
+                className: "flex flex-col lg:flex-row justify-between gap-4",
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "flex-1 space-y-3",
+                        className: "space-y-3",
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                className: "flex flex-wrap items-center gap-3",
+                                className: "flex items-center gap-2 flex-wrap",
                                 children: [
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                        className: "flex items-center gap-2",
-                                        children: [
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$map$2d$pin$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__MapPin$3e$__["MapPin"], {
-                                                className: "w-4 h-4 text-green-600"
-                                            }, void 0, false, {
-                                                fileName: "[project]/blito-frontend/components/trips/TripCard.tsx",
-                                                lineNumber: 135,
-                                                columnNumber: 17
-                                            }, this),
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                className: "font-medium text-slate-800",
-                                                children: trip.route_info?.origin || 'نامشخص'
-                                            }, void 0, false, {
-                                                fileName: "[project]/blito-frontend/components/trips/TripCard.tsx",
-                                                lineNumber: 136,
-                                                columnNumber: 17
-                                            }, this)
-                                        ]
-                                    }, void 0, true, {
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$map$2d$pin$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__MapPin$3e$__["MapPin"], {
+                                        className: "text-green-600 w-4 h-4"
+                                    }, void 0, false, {
                                         fileName: "[project]/blito-frontend/components/trips/TripCard.tsx",
-                                        lineNumber: 134,
+                                        lineNumber: 127,
+                                        columnNumber: 15
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                        children: trip.route.origin
+                                    }, void 0, false, {
+                                        fileName: "[project]/blito-frontend/components/trips/TripCard.tsx",
+                                        lineNumber: 128,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$arrow$2d$right$2d$left$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__ArrowRightLeft$3e$__["ArrowRightLeft"], {
-                                        className: "w-4 h-4 text-slate-400"
+                                        className: "text-gray-400 w-4 h-4 mx-2"
                                     }, void 0, false, {
                                         fileName: "[project]/blito-frontend/components/trips/TripCard.tsx",
-                                        lineNumber: 140,
+                                        lineNumber: 130,
                                         columnNumber: 15
                                     }, this),
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                        className: "flex items-center gap-2",
-                                        children: [
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$map$2d$pin$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__MapPin$3e$__["MapPin"], {
-                                                className: "w-4 h-4 text-red-600"
-                                            }, void 0, false, {
-                                                fileName: "[project]/blito-frontend/components/trips/TripCard.tsx",
-                                                lineNumber: 142,
-                                                columnNumber: 17
-                                            }, this),
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                className: "font-medium text-slate-800",
-                                                children: trip.route_info?.destination || 'نامشخص'
-                                            }, void 0, false, {
-                                                fileName: "[project]/blito-frontend/components/trips/TripCard.tsx",
-                                                lineNumber: 143,
-                                                columnNumber: 17
-                                            }, this)
-                                        ]
-                                    }, void 0, true, {
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$map$2d$pin$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__MapPin$3e$__["MapPin"], {
+                                        className: "text-red-600 w-4 h-4"
+                                    }, void 0, false, {
                                         fileName: "[project]/blito-frontend/components/trips/TripCard.tsx",
-                                        lineNumber: 141,
+                                        lineNumber: 132,
+                                        columnNumber: 15
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                        children: trip.route.destination
+                                    }, void 0, false, {
+                                        fileName: "[project]/blito-frontend/components/trips/TripCard.tsx",
+                                        lineNumber: 133,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/blito-frontend/components/trips/TripCard.tsx",
-                                lineNumber: 133,
+                                lineNumber: 126,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                className: "flex flex-wrap items-center gap-4 text-sm text-slate-600",
+                                className: "flex items-center gap-3 text-sm text-slate-600 flex-wrap",
                                 children: [
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                         className: "flex items-center gap-1",
                                         children: [
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$bus$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Bus$3e$__["Bus"], {
                                                 className: "w-4 h-4"
                                             }, void 0, false, {
                                                 fileName: "[project]/blito-frontend/components/trips/TripCard.tsx",
-                                                lineNumber: 151,
+                                                lineNumber: 138,
                                                 columnNumber: 17
                                             }, this),
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                children: trip.route_info?.company || 'نامشخص'
-                                            }, void 0, false, {
-                                                fileName: "[project]/blito-frontend/components/trips/TripCard.tsx",
-                                                lineNumber: 152,
-                                                columnNumber: 17
-                                            }, this)
+                                            trip.route.company
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/blito-frontend/components/trips/TripCard.tsx",
-                                        lineNumber: 150,
+                                        lineNumber: 137,
                                         columnNumber: 15
                                     }, this),
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                         className: "flex items-center gap-1",
                                         children: [
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$clock$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Clock$3e$__["Clock"], {
                                                 className: "w-4 h-4"
                                             }, void 0, false, {
                                                 fileName: "[project]/blito-frontend/components/trips/TripCard.tsx",
-                                                lineNumber: 155,
+                                                lineNumber: 143,
                                                 columnNumber: 17
                                             }, this),
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                children: [
-                                                    duration,
-                                                    " ساعت"
-                                                ]
-                                            }, void 0, true, {
-                                                fileName: "[project]/blito-frontend/components/trips/TripCard.tsx",
-                                                lineNumber: 156,
-                                                columnNumber: 17
-                                            }, this)
+                                            duration,
+                                            " ساعت"
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/blito-frontend/components/trips/TripCard.tsx",
-                                        lineNumber: 154,
+                                        lineNumber: 142,
                                         columnNumber: 15
                                     }, this),
-                                    trip.route_info?.distance_km && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                         className: "flex items-center gap-1",
                                         children: [
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$route$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Route$3e$__["Route"], {
                                                 className: "w-4 h-4"
                                             }, void 0, false, {
                                                 fileName: "[project]/blito-frontend/components/trips/TripCard.tsx",
-                                                lineNumber: 160,
-                                                columnNumber: 19
+                                                lineNumber: 148,
+                                                columnNumber: 17
                                             }, this),
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                children: [
-                                                    trip.route_info.distance_km,
-                                                    " کیلومتر"
-                                                ]
-                                            }, void 0, true, {
-                                                fileName: "[project]/blito-frontend/components/trips/TripCard.tsx",
-                                                lineNumber: 161,
-                                                columnNumber: 19
-                                            }, this)
+                                            trip.route.distance_km,
+                                            " کیلومتر"
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/blito-frontend/components/trips/TripCard.tsx",
-                                        lineNumber: 159,
-                                        columnNumber: 17
+                                        lineNumber: 147,
+                                        columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/blito-frontend/components/trips/TripCard.tsx",
-                                lineNumber: 149,
+                                lineNumber: 136,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                className: "flex flex-wrap items-center gap-3 text-sm",
+                                className: "flex gap-3 text-sm",
                                 children: [
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                         className: "bg-green-50 px-3 py-1 rounded-lg",
                                         children: [
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                className: "text-green-700 font-medium",
-                                                children: "حرکت: "
-                                            }, void 0, false, {
-                                                fileName: "[project]/blito-frontend/components/trips/TripCard.tsx",
-                                                lineNumber: 168,
-                                                columnNumber: 17
-                                            }, this),
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                className: "text-slate-700",
-                                                children: departureDateTime.time
-                                            }, void 0, false, {
-                                                fileName: "[project]/blito-frontend/components/trips/TripCard.tsx",
-                                                lineNumber: 169,
-                                                columnNumber: 17
-                                            }, this)
+                                            "حرکت: ",
+                                            dep.time
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/blito-frontend/components/trips/TripCard.tsx",
-                                        lineNumber: 167,
+                                        lineNumber: 154,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                         className: "bg-blue-50 px-3 py-1 rounded-lg",
                                         children: [
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                className: "text-blue-700 font-medium",
-                                                children: "رسیدن: "
-                                            }, void 0, false, {
-                                                fileName: "[project]/blito-frontend/components/trips/TripCard.tsx",
-                                                lineNumber: 172,
-                                                columnNumber: 17
-                                            }, this),
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                className: "text-slate-700",
-                                                children: arrivalDateTime.time
-                                            }, void 0, false, {
-                                                fileName: "[project]/blito-frontend/components/trips/TripCard.tsx",
-                                                lineNumber: 173,
-                                                columnNumber: 17
-                                            }, this)
+                                            "رسیدن: ",
+                                            arr.time
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/blito-frontend/components/trips/TripCard.tsx",
-                                        lineNumber: 171,
+                                        lineNumber: 157,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/blito-frontend/components/trips/TripCard.tsx",
-                                lineNumber: 166,
+                                lineNumber: 153,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/blito-frontend/components/trips/TripCard.tsx",
-                        lineNumber: 132,
+                        lineNumber: 125,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$components$2f$ui$2f$separator$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Separator"], {
                         orientation: "vertical",
-                        className: "hidden lg:block h-20 mx-4"
+                        className: "hidden lg:block h-20"
                     }, void 0, false, {
                         fileName: "[project]/blito-frontend/components/trips/TripCard.tsx",
-                        lineNumber: 178,
+                        lineNumber: 163,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "flex items-center justify-between lg:justify-end gap-4 lg:min-w-[280px]",
+                        className: "flex items-center justify-between lg:flex-col lg:items-end lg:gap-3",
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                className: "flex flex-col gap-2",
                                 children: [
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                        className: "flex flex-wrap gap-2",
+                                        className: "flex gap-2",
                                         children: [
-                                            trip.route_info?.bus_type && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$components$2f$ui$2f$badge$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Badge"], {
-                                                className: `${getBusTypeColor(trip.route_info.bus_type)} border`,
-                                                children: getBusTypeLabel(trip.route_info.bus_type)
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$components$2f$ui$2f$badge$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Badge"], {
+                                                className: getBusTypeColor(trip.route.bus_type),
+                                                children: getBusTypeLabel(trip.route.bus_type)
                                             }, void 0, false, {
                                                 fileName: "[project]/blito-frontend/components/trips/TripCard.tsx",
-                                                lineNumber: 184,
-                                                columnNumber: 19
+                                                lineNumber: 170,
+                                                columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$components$2f$ui$2f$badge$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Badge"], {
-                                                className: `${getStatusColor(trip.status)} border`,
+                                                className: getStatusColor(trip.status),
                                                 children: getStatusLabel(trip.status)
                                             }, void 0, false, {
                                                 fileName: "[project]/blito-frontend/components/trips/TripCard.tsx",
-                                                lineNumber: 192,
+                                                lineNumber: 174,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/blito-frontend/components/trips/TripCard.tsx",
-                                        lineNumber: 182,
+                                        lineNumber: 169,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                        className: "text-left mt-1",
-                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                            className: "flex items-baseline gap-1 text-2xl font-bold text-slate-800",
-                                            children: [
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$dollar$2d$sign$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__DollarSign$3e$__["DollarSign"], {
-                                                    className: "w-5 h-5"
-                                                }, void 0, false, {
-                                                    fileName: "[project]/blito-frontend/components/trips/TripCard.tsx",
-                                                    lineNumber: 199,
-                                                    columnNumber: 19
-                                                }, this),
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                    children: parseFloat(trip.current_price).toLocaleString('fa-IR')
-                                                }, void 0, false, {
-                                                    fileName: "[project]/blito-frontend/components/trips/TripCard.tsx",
-                                                    lineNumber: 200,
-                                                    columnNumber: 19
-                                                }, this),
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                    className: "text-xs font-normal text-slate-500",
-                                                    children: "تومان"
-                                                }, void 0, false, {
-                                                    fileName: "[project]/blito-frontend/components/trips/TripCard.tsx",
-                                                    lineNumber: 203,
-                                                    columnNumber: 19
-                                                }, this)
-                                            ]
-                                        }, void 0, true, {
-                                            fileName: "[project]/blito-frontend/components/trips/TripCard.tsx",
-                                            lineNumber: 198,
-                                            columnNumber: 17
-                                        }, this)
-                                    }, void 0, false, {
+                                        className: "text-2xl font-bold mt-2",
+                                        children: [
+                                            parseFloat(trip.current_price).toLocaleString('fa-IR'),
+                                            " تومان"
+                                        ]
+                                    }, void 0, true, {
                                         fileName: "[project]/blito-frontend/components/trips/TripCard.tsx",
-                                        lineNumber: 197,
+                                        lineNumber: 179,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/blito-frontend/components/trips/TripCard.tsx",
-                                lineNumber: 181,
+                                lineNumber: 168,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
-                                className: "bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white rounded-2xl px-5",
+                                className: "bg-green-600 hover:bg-green-700 rounded-2xl px-6 text-white",
                                 onClick: ()=>onBook(trip.id),
                                 children: [
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$calendar$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Calendar$3e$__["Calendar"], {
-                                        className: "w-4 h-4 ml-2"
+                                        className: "ml-2 w-4 h-4"
                                     }, void 0, false, {
                                         fileName: "[project]/blito-frontend/components/trips/TripCard.tsx",
-                                        lineNumber: 212,
+                                        lineNumber: 188,
                                         columnNumber: 15
                                     }, this),
-                                    "رزرو"
+                                    " رزرو"
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/blito-frontend/components/trips/TripCard.tsx",
-                                lineNumber: 208,
+                                lineNumber: 184,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/blito-frontend/components/trips/TripCard.tsx",
-                        lineNumber: 180,
+                        lineNumber: 166,
                         columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/blito-frontend/components/trips/TripCard.tsx",
-                lineNumber: 131,
+                lineNumber: 122,
                 columnNumber: 9
             }, this)
         }, void 0, false, {
             fileName: "[project]/blito-frontend/components/trips/TripCard.tsx",
-            lineNumber: 130,
+            lineNumber: 121,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/blito-frontend/components/trips/TripCard.tsx",
-        lineNumber: 129,
+        lineNumber: 120,
         columnNumber: 5
     }, this);
 }
@@ -1763,14 +1660,14 @@ function TripsSection({ trips, searched, ordering, onOrderingChange, onBook }) {
                                 className: "w-6 h-6 ml-2 text-blue-600"
                             }, void 0, false, {
                                 fileName: "[project]/blito-frontend/components/trips/TripsSection.tsx",
-                                lineNumber: 63,
+                                lineNumber: 70,
                                 columnNumber: 11
                             }, this),
                             "سفرهای موجود"
                         ]
                     }, void 0, true, {
                         fileName: "[project]/blito-frontend/components/trips/TripsSection.tsx",
-                        lineNumber: 62,
+                        lineNumber: 69,
                         columnNumber: 9
                     }, this),
                     trips.length > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$components$2f$ui$2f$badge$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Badge"], {
@@ -1781,13 +1678,13 @@ function TripsSection({ trips, searched, ordering, onOrderingChange, onBook }) {
                         ]
                     }, void 0, true, {
                         fileName: "[project]/blito-frontend/components/trips/TripsSection.tsx",
-                        lineNumber: 67,
+                        lineNumber: 75,
                         columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/blito-frontend/components/trips/TripsSection.tsx",
-                lineNumber: 61,
+                lineNumber: 68,
                 columnNumber: 7
             }, this),
             trips.length > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1799,7 +1696,7 @@ function TripsSection({ trips, searched, ordering, onOrderingChange, onBook }) {
                             children: "مرتب‌سازی بر اساس"
                         }, void 0, false, {
                             fileName: "[project]/blito-frontend/components/trips/TripsSection.tsx",
-                            lineNumber: 76,
+                            lineNumber: 84,
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Select"], {
@@ -1812,12 +1709,12 @@ function TripsSection({ trips, searched, ordering, onOrderingChange, onBook }) {
                                         placeholder: "مرتب‌سازی را انتخاب کنید"
                                     }, void 0, false, {
                                         fileName: "[project]/blito-frontend/components/trips/TripsSection.tsx",
-                                        lineNumber: 81,
+                                        lineNumber: 89,
                                         columnNumber: 17
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/blito-frontend/components/trips/TripsSection.tsx",
-                                    lineNumber: 80,
+                                    lineNumber: 88,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SelectContent"], {
@@ -1827,7 +1724,7 @@ function TripsSection({ trips, searched, ordering, onOrderingChange, onBook }) {
                                             children: "زودترین حرکت"
                                         }, void 0, false, {
                                             fileName: "[project]/blito-frontend/components/trips/TripsSection.tsx",
-                                            lineNumber: 84,
+                                            lineNumber: 92,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SelectItem"], {
@@ -1835,7 +1732,7 @@ function TripsSection({ trips, searched, ordering, onOrderingChange, onBook }) {
                                             children: "دیرترین حرکت"
                                         }, void 0, false, {
                                             fileName: "[project]/blito-frontend/components/trips/TripsSection.tsx",
-                                            lineNumber: 85,
+                                            lineNumber: 93,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SelectItem"], {
@@ -1843,7 +1740,7 @@ function TripsSection({ trips, searched, ordering, onOrderingChange, onBook }) {
                                             children: "ارزان‌ترین"
                                         }, void 0, false, {
                                             fileName: "[project]/blito-frontend/components/trips/TripsSection.tsx",
-                                            lineNumber: 86,
+                                            lineNumber: 94,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SelectItem"], {
@@ -1851,30 +1748,30 @@ function TripsSection({ trips, searched, ordering, onOrderingChange, onBook }) {
                                             children: "گران‌ترین"
                                         }, void 0, false, {
                                             fileName: "[project]/blito-frontend/components/trips/TripsSection.tsx",
-                                            lineNumber: 87,
+                                            lineNumber: 95,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/blito-frontend/components/trips/TripsSection.tsx",
-                                    lineNumber: 83,
+                                    lineNumber: 91,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/blito-frontend/components/trips/TripsSection.tsx",
-                            lineNumber: 79,
+                            lineNumber: 87,
                             columnNumber: 13
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/blito-frontend/components/trips/TripsSection.tsx",
-                    lineNumber: 75,
+                    lineNumber: 83,
                     columnNumber: 11
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/blito-frontend/components/trips/TripsSection.tsx",
-                lineNumber: 74,
+                lineNumber: 82,
                 columnNumber: 9
             }, this),
             trips.length === 0 ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Card"], {
@@ -1888,12 +1785,12 @@ function TripsSection({ trips, searched, ordering, onOrderingChange, onBook }) {
                                 className: "w-8 h-8 text-gray-400"
                             }, void 0, false, {
                                 fileName: "[project]/blito-frontend/components/trips/TripsSection.tsx",
-                                lineNumber: 98,
+                                lineNumber: 106,
                                 columnNumber: 15
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/blito-frontend/components/trips/TripsSection.tsx",
-                            lineNumber: 97,
+                            lineNumber: 105,
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h4", {
@@ -1901,7 +1798,7 @@ function TripsSection({ trips, searched, ordering, onOrderingChange, onBook }) {
                             children: "سفری یافت نشد"
                         }, void 0, false, {
                             fileName: "[project]/blito-frontend/components/trips/TripsSection.tsx",
-                            lineNumber: 100,
+                            lineNumber: 108,
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1909,18 +1806,18 @@ function TripsSection({ trips, searched, ordering, onOrderingChange, onBook }) {
                             children: "برای این مسیر و تاریخ در حال حاضر سفری موجود نیست"
                         }, void 0, false, {
                             fileName: "[project]/blito-frontend/components/trips/TripsSection.tsx",
-                            lineNumber: 101,
+                            lineNumber: 109,
                             columnNumber: 13
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/blito-frontend/components/trips/TripsSection.tsx",
-                    lineNumber: 96,
+                    lineNumber: 104,
                     columnNumber: 11
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/blito-frontend/components/trips/TripsSection.tsx",
-                lineNumber: 95,
+                lineNumber: 103,
                 columnNumber: 9
             }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: "grid gap-4",
@@ -1929,18 +1826,18 @@ function TripsSection({ trips, searched, ordering, onOrderingChange, onBook }) {
                         onBook: onBook
                     }, trip.id, false, {
                         fileName: "[project]/blito-frontend/components/trips/TripsSection.tsx",
-                        lineNumber: 109,
+                        lineNumber: 117,
                         columnNumber: 13
                     }, this))
             }, void 0, false, {
                 fileName: "[project]/blito-frontend/components/trips/TripsSection.tsx",
-                lineNumber: 107,
+                lineNumber: 115,
                 columnNumber: 9
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/blito-frontend/components/trips/TripsSection.tsx",
-        lineNumber: 60,
+        lineNumber: 67,
         columnNumber: 5
     }, this);
 }
@@ -2149,14 +2046,10 @@ function HomePage() {
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(()=>{
         const token = ("TURBOPACK compile-time falsy", 0) ? "TURBOPACK unreachable" : null;
         setIsLoggedIn(!!token);
-        // تاریخ پیش‌فرض: امروز
         setSelectedDate(new Date());
     }, []);
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(()=>{
-        if (searched) {
-            searchTrips();
-        }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+        if (searched) searchTrips();
     }, [
         ordering
     ]);
@@ -2185,7 +2078,7 @@ function HomePage() {
     const handleBookTrip = (id)=>{
         router.push(`/booking/${id}`);
     };
-    const searchTrips = async ()=>{
+    /* ----------- جستجوی سفر مطابق API جدید ----------- */ const searchTrips = async ()=>{
         if (!fromCity || !toCity) return;
         setLoading(true);
         try {
@@ -2193,7 +2086,6 @@ function HomePage() {
             url.searchParams.append('route__origin', fromCity);
             url.searchParams.append('route__destination', toCity);
             url.searchParams.append('ordering', ordering);
-            // تبدیل تاریخ انتخاب شده به فرمت مناسب API
             if (selectedDate) {
                 let gregorianDate = null;
                 if (selectedDate?.toDate) {
@@ -2208,31 +2100,10 @@ function HomePage() {
                 }
             }
             const res = await fetch(url.toString());
-            if (!res.ok) {
-                throw new Error(`Failed to fetch trips: ${res.status}`);
-            }
+            if (!res.ok) throw new Error(`Failed: ${res.status}`);
             const rawData = await res.json();
-            const results = Array.isArray(rawData) ? rawData : rawData?.results ?? [];
-            const tripsWithRouteInfo = await Promise.all(results.map(async (trip)=>{
-                try {
-                    const routeRes = await fetch(`http://localhost:8000/routes/api/v1/routes/${trip.route}/`);
-                    const routeData = await routeRes.json();
-                    return {
-                        ...trip,
-                        route_info: {
-                            origin: routeData.origin,
-                            destination: routeData.destination,
-                            company: routeData.company,
-                            bus_type: routeData.bus_type,
-                            distance_km: routeData.distance_km
-                        }
-                    };
-                } catch (error) {
-                    console.error('خطا در گرفتن اطلاعات مسیر:', error);
-                    return trip;
-                }
-            }));
-            setTrips(tripsWithRouteInfo);
+            const results = Array.isArray(rawData) ? rawData : rawData.results ?? [];
+            setTrips(results);
             setSearched(true);
         } catch (error) {
             console.error('خطا در جستجوی سفرها:', error);
@@ -2242,7 +2113,7 @@ function HomePage() {
             setLoading(false);
         }
     };
-    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+    /* ------------------ UI ------------------ */ return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         className: "min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-100",
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$components$2f$home$2f$Header$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
@@ -2253,7 +2124,7 @@ function HomePage() {
                 onLogout: handleLogout
             }, void 0, false, {
                 fileName: "[project]/blito-frontend/app/page.tsx",
-                lineNumber: 180,
+                lineNumber: 175,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2274,13 +2145,13 @@ function HomePage() {
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/blito-frontend/app/page.tsx",
-                                        lineNumber: 193,
+                                        lineNumber: 187,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/blito-frontend/app/page.tsx",
-                                lineNumber: 191,
+                                lineNumber: 185,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2288,13 +2159,13 @@ function HomePage() {
                                 children: "بهترین قیمت‌ها و راحت‌ترین روش برای رزرو بلیت اتوبوس"
                             }, void 0, false, {
                                 fileName: "[project]/blito-frontend/app/page.tsx",
-                                lineNumber: 198,
+                                lineNumber: 191,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/blito-frontend/app/page.tsx",
-                        lineNumber: 190,
+                        lineNumber: 184,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$components$2f$home$2f$SearchSection$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
@@ -2311,7 +2182,7 @@ function HomePage() {
                         isSearchDisabled: !fromCity || !toCity
                     }, void 0, false, {
                         fileName: "[project]/blito-frontend/app/page.tsx",
-                        lineNumber: 203,
+                        lineNumber: 196,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$components$2f$trips$2f$TripsSection$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
@@ -2322,36 +2193,36 @@ function HomePage() {
                         onBook: handleBookTrip
                     }, void 0, false, {
                         fileName: "[project]/blito-frontend/app/page.tsx",
-                        lineNumber: 217,
+                        lineNumber: 210,
                         columnNumber: 9
                     }, this),
                     !searched && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$components$2f$home$2f$FeaturesSection$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
                         fileName: "[project]/blito-frontend/app/page.tsx",
-                        lineNumber: 225,
+                        lineNumber: 218,
                         columnNumber: 23
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         className: "mt-14",
                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$components$2f$ui$2f$Testimonials$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
                             fileName: "[project]/blito-frontend/app/page.tsx",
-                            lineNumber: 228,
+                            lineNumber: 221,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/blito-frontend/app/page.tsx",
-                        lineNumber: 227,
+                        lineNumber: 220,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/blito-frontend/app/page.tsx",
-                lineNumber: 188,
+                lineNumber: 183,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/blito-frontend/app/page.tsx",
-        lineNumber: 179,
+        lineNumber: 174,
         columnNumber: 5
     }, this);
 }

@@ -2,7 +2,6 @@
 
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-
 import {
   Select,
   SelectContent,
@@ -17,24 +16,32 @@ import TripCard from './TripCard';
 
 type TripStatus = 'SCHEDULED' | 'DEPARTED' | 'ARRIVED' | 'CANCELLED';
 
+type RouteType = {
+  id: number;
+  origin: string;
+  destination: string;
+  company: string;
+  bus_type: 'standard' | 'luxury' | 'vip';
+  distance_km: number;
+};
+
+type FleetType = {
+  id: number;
+  model: string;
+  brand: string;
+  capacity: number;
+};
+
 type TripType = {
   id: number;
-  route: number;
-  bus: number;
+  route: RouteType;
+  fleet: FleetType;
   departure_datetime: string;
   arrival_datetime: string;
   current_price: string;
   status: TripStatus;
   driver_name: number;
-  driver_phone: string;
   created_at: string;
-  route_info?: {
-    origin: string;
-    destination: string;
-    company: string;
-    bus_type: 'standard' | 'luxury' | 'vip';
-    distance_km: number;
-  };
 };
 
 type TripsSectionProps = {
@@ -63,6 +70,7 @@ export default function TripsSection({
           <Route className="w-6 h-6 ml-2 text-blue-600" />
           سفرهای موجود
         </h3>
+
         {trips.length > 0 && (
           <Badge className="bg-blue-100 text-blue-700 border-blue-200 px-4 py-1 rounded-full">
             {trips.length} سفر یافت شد

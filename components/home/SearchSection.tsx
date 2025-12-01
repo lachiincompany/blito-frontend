@@ -48,7 +48,8 @@ export default function SearchSection({
 }: SearchSectionProps) {
   return (
     <div className="w-full max-w-6xl mx-auto px-4">
-      <Card className="border-0 shadow-2xl bg-white/95 backdrop-blur-xl rounded-3xl overflow-visible relative z-10 ring-1 ring-slate-900/5">
+      <Card className="border-0 shadow-2xl bg-white/95 backdrop-blur-xl rounded-3xl ring-1 ring-slate-900/5">
+
         
         <CardHeader className="pb-2 pt-6 px-6">
           <div className="flex items-center gap-2">

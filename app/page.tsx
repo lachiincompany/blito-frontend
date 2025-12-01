@@ -9,7 +9,7 @@ import SearchSection from '@/components/home/SearchSection';
 import TripsSection from '@/components/trips/TripsSection';
 import FeaturesSection from '@/components/home/FeaturesSection';
 
-/* ---- type ها داخل همین فایل (نه types/trip.ts) ---- */
+/* ------------ Types مطابق API جدید ------------ */
 
 type City = {
   id: number;
@@ -18,24 +18,44 @@ type City = {
 
 type TripStatus = 'SCHEDULED' | 'DEPARTED' | 'ARRIVED' | 'CANCELLED';
 
+type RouteType = {
+  id: number;
+  origin: string;
+  destination: string;
+  company: string;
+  bus_type: 'standard' | 'luxury' | 'vip';
+  base_price: string;
+  distance_km: number;
+  estimated_duration: string;
+  is_active: boolean;
+  created_at: string;
+};
+
+type FleetType = {
+  id: number;
+  company_name: string;
+  bus_number: string;
+  license_plate: string;
+  model: string;
+  brand: string;
+  year: number;
+  capacity: number;
+  bus_type: 'standard' | 'luxury' | 'vip';
+  facilities: string;
+  image: string;
+  interior_image: string;
+};
+
 type TripType = {
   id: number;
-  route: number;
-  bus: number;
+  route: RouteType;
+  fleet: FleetType;
   departure_datetime: string;
   arrival_datetime: string;
   current_price: string;
   status: TripStatus;
   driver_name: number;
-  driver_phone: string;
   created_at: string;
-  route_info?: {
-    origin: string;
-    destination: string;
-    company: string;
-    bus_type: 'standard' | 'luxury' | 'vip';
-    distance_km: number;
-  };
 };
 
 type TripResponse = {
@@ -44,6 +64,8 @@ type TripResponse = {
   previous: string | null;
   results: TripType[];
 };
+
+/* ------------------ Component ------------------ */
 
 export default function HomePage() {
   const router = useRouter();
@@ -59,19 +81,14 @@ export default function HomePage() {
   const [ordering, setOrdering] = useState<string>('departure_datetime');
 
   useEffect(() => {
-    const token =
-      typeof window !== 'undefined' ? localStorage.getItem('accessToken') : null;
+    const token = typeof window !== 'undefined' ? localStorage.getItem('accessToken') : null;
     setIsLoggedIn(!!token);
 
-    // تاریخ پیش‌فرض: امروز
     setSelectedDate(new Date());
   }, []);
 
   useEffect(() => {
-    if (searched) {
-      searchTrips();
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    if (searched) searchTrips();
   }, [ordering]);
 
   useEffect(() => {
@@ -103,17 +120,20 @@ export default function HomePage() {
     router.push(`/booking/${id}`);
   };
 
+  /* ----------- جستجوی سفر مطابق API جدید ----------- */
+
   const searchTrips = async () => {
     if (!fromCity || !toCity) return;
 
     setLoading(true);
+
     try {
       const url = new URL('http://localhost:8000/trips/api/v1/trips/');
+
       url.searchParams.append('route__origin', fromCity);
       url.searchParams.append('route__destination', toCity);
       url.searchParams.append('ordering', ordering);
 
-      // تبدیل تاریخ انتخاب شده به فرمت مناسب API
       if (selectedDate) {
         let gregorianDate: string | null = null;
 
@@ -131,41 +151,14 @@ export default function HomePage() {
       }
 
       const res = await fetch(url.toString());
-      if (!res.ok) {
-        throw new Error(`Failed to fetch trips: ${res.status}`);
-      }
+      if (!res.ok) throw new Error(`Failed: ${res.status}`);
 
       const rawData: TripResponse | TripType[] = await res.json();
-      const results: TripType[] = Array.isArray(rawData)
-        ? rawData
-        : rawData?.results ?? [];
+      const results = Array.isArray(rawData) ? rawData : rawData.results ?? [];
 
-      const tripsWithRouteInfo = await Promise.all(
-        results.map(async (trip) => {
-          try {
-            const routeRes = await fetch(
-              `http://localhost:8000/routes/api/v1/routes/${trip.route}/`,
-            );
-            const routeData = await routeRes.json();
-            return {
-              ...trip,
-              route_info: {
-                origin: routeData.origin,
-                destination: routeData.destination,
-                company: routeData.company,
-                bus_type: routeData.bus_type,
-                distance_km: routeData.distance_km,
-              },
-            };
-          } catch (error) {
-            console.error('خطا در گرفتن اطلاعات مسیر:', error);
-            return trip;
-          }
-        }),
-      );
-
-      setTrips(tripsWithRouteInfo);
+      setTrips(results);
       setSearched(true);
+
     } catch (error) {
       console.error('خطا در جستجوی سفرها:', error);
       setTrips([]);
@@ -174,6 +167,8 @@ export default function HomePage() {
       setLoading(false);
     }
   };
+
+  /* ------------------ UI ------------------ */
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-100">
@@ -186,13 +181,11 @@ export default function HomePage() {
       />
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-12">
-        {/* Hero Section */}
         <div className="text-center mb-10 sm:mb-12">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-800 mb-4">
             سفر آسان با
             <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-              {' '}
-              بلیتو
+              {' '}بلیتو
             </span>
           </h2>
           <p className="text-base sm:text-lg md:text-xl text-slate-600 max-w-2xl mx-auto">
