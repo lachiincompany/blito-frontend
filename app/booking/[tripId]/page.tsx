@@ -97,7 +97,11 @@ export default function BookingPage() {
         console.log("Seat API response (parsed):", seatData);
 
         // چون API شما لیست نمی‌دهد، تک مورد برمی‌گرداند
-        setSeats(Array.isArray(seatData) ? seatData : [seatData]);
+        console.log("RAW seatData:", seatData);
+        console.log("seatData.seats:", seatData?.seats);
+        console.log("Array.isArray(seatData.seats):", Array.isArray(seatData?.seats));
+        console.log("seatRes.status:", seatRes.status)
+        setSeats(seatData.seats); 
         
       } catch (err) {
         console.error(err);
@@ -129,41 +133,54 @@ export default function BookingPage() {
     });
   };
 
-  // --- ثبت رزرو نهایی ---
-  const handleReservation = async () => {
-    if (selectedSeats.length === 0) return;
-    
-    setReserving(true);
-    setError(null);
-    try {
-      const token = localStorage.getItem('accessToken');
-      if (!token) {
-        router.push('/login'); // هدایت به لاگین اگر توکن نبود
-        return;
-      }
+const handleReservation = async () => {
+  if (selectedSeats.length === 0) return;
 
-      const response = await fetch('http://localhost:8000/seat/api/v1/seats/reserve/', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}`,
-        },
-        body: JSON.stringify({ seat_ids: selectedSeats }),
-      });
+  const token = localStorage.getItem("accessToken");
 
-      if (response.ok) {
-        alert('رزرو با موفقیت انجام شد!');
-        router.push('/dashboard/tickets'); // هدایت به صفحه بلیط‌ها
-      } else {
-        const data = await response.json();
-        setError(data.error || 'خطا در ثبت رزرو');
-      }
-    } catch (err) {
-      setError('خطا در اتصال به سرور');
-    } finally {
-      setReserving(false);
+  // 1) ایجاد رزرو
+  const createRes = await fetch("http://localhost:8000/reservations/api/v1/api/reservations/", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "Authorization": `Bearer ${token}`,
+    },
+    body: JSON.stringify({ seat: selectedSeats[0] }),
+  });
+
+  const reservation = await createRes.json();
+
+  if (!createRes.ok) {
+    console.log("خطا:", reservation);
+    setError(reservation.detail || reservation.error || "خطا در ایجاد رزرو");
+    return;
+  }
+
+  console.log("Reservation created:", reservation);
+
+  const reservationId = reservation.id;
+
+  // 2) تایید پرداخت آفلاین
+  const payRes = await fetch(
+    `http://localhost:8000/reservations/api/v1/api/reservations/${reservationId}/confirm_payment/`,
+    {
+      method: "POST",
+      headers: { "Authorization": `Bearer ${token}` },
     }
-  };
+  );
+
+  const payData = await payRes.json();
+
+  if (!payRes.ok) {
+    console.log("Error confirming:", payData);
+    setError(payData.detail || payData.error || "خطا در تایید پرداخت");
+    return;
+  }
+
+  alert("پرداخت با موفقیت تایید شد!");
+  router.push("/dashboard/tickets");
+};
+
 
   // --- بخش رندرینگ: حالت لودینگ ---
   if (loading) {

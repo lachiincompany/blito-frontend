@@ -427,9 +427,11 @@ function BookingPage() {
                 const seatData = await seatRes.json();
                 console.log("Seat API response (parsed):", seatData);
                 // چون API شما لیست نمی‌دهد، تک مورد برمی‌گرداند
-                setSeats(Array.isArray(seatData) ? seatData : [
-                    seatData
-                ]);
+                console.log("RAW seatData:", seatData);
+                console.log("seatData.seats:", seatData?.seats);
+                console.log("Array.isArray(seatData.seats):", Array.isArray(seatData?.seats));
+                console.log("seatRes.status:", seatRes.status);
+                setSeats(seatData.seats);
             } catch (err) {
                 console.error(err);
                 setError('مشکلی در ارتباط با سرور پیش آمده است. لطفاً مجدداً تلاش کنید.');
@@ -461,39 +463,43 @@ function BookingPage() {
             }
         });
     };
-    // --- ثبت رزرو نهایی ---
     const handleReservation = async ()=>{
         if (selectedSeats.length === 0) return;
-        setReserving(true);
-        setError(null);
-        try {
-            const token = localStorage.getItem('accessToken');
-            if (!token) {
-                router.push('/login'); // هدایت به لاگین اگر توکن نبود
-                return;
-            }
-            const response = await fetch('http://localhost:8000/seat/api/v1/seats/reserve/', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${token}`
-                },
-                body: JSON.stringify({
-                    seat_ids: selectedSeats
-                })
-            });
-            if (response.ok) {
-                alert('رزرو با موفقیت انجام شد!');
-                router.push('/dashboard/tickets'); // هدایت به صفحه بلیط‌ها
-            } else {
-                const data = await response.json();
-                setError(data.error || 'خطا در ثبت رزرو');
-            }
-        } catch (err) {
-            setError('خطا در اتصال به سرور');
-        } finally{
-            setReserving(false);
+        const token = localStorage.getItem("accessToken");
+        // 1) ایجاد رزرو
+        const createRes = await fetch("http://localhost:8000/reservations/api/v1/api/reservations/", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${token}`
+            },
+            body: JSON.stringify({
+                seat: selectedSeats[0]
+            })
+        });
+        const reservation = await createRes.json();
+        if (!createRes.ok) {
+            console.log("خطا:", reservation);
+            setError(reservation.detail || reservation.error || "خطا در ایجاد رزرو");
+            return;
         }
+        console.log("Reservation created:", reservation);
+        const reservationId = reservation.id;
+        // 2) تایید پرداخت آفلاین
+        const payRes = await fetch(`http://localhost:8000/reservations/api/v1/api/reservations/${reservationId}/confirm_payment/`, {
+            method: "POST",
+            headers: {
+                "Authorization": `Bearer ${token}`
+            }
+        });
+        const payData = await payRes.json();
+        if (!payRes.ok) {
+            console.log("Error confirming:", payData);
+            setError(payData.detail || payData.error || "خطا در تایید پرداخت");
+            return;
+        }
+        alert("پرداخت با موفقیت تایید شد!");
+        router.push("/dashboard/tickets");
     };
     // --- بخش رندرینگ: حالت لودینگ ---
     if (loading) {
@@ -504,7 +510,7 @@ function BookingPage() {
                     className: "w-10 h-10 animate-spin text-blue-600"
                 }, void 0, false, {
                     fileName: "[project]/blito-frontend/app/booking/[tripId]/page.tsx",
-                    lineNumber: 172,
+                    lineNumber: 189,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -512,13 +518,13 @@ function BookingPage() {
                     children: "در حال بارگذاری اطلاعات سفر..."
                 }, void 0, false, {
                     fileName: "[project]/blito-frontend/app/booking/[tripId]/page.tsx",
-                    lineNumber: 173,
+                    lineNumber: 190,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/blito-frontend/app/booking/[tripId]/page.tsx",
-            lineNumber: 171,
+            lineNumber: 188,
             columnNumber: 7
         }, this);
     }
@@ -543,12 +549,12 @@ function BookingPage() {
                                         className: "w-5 h-5"
                                     }, void 0, false, {
                                         fileName: "[project]/blito-frontend/app/booking/[tripId]/page.tsx",
-                                        lineNumber: 187,
+                                        lineNumber: 204,
                                         columnNumber: 15
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/blito-frontend/app/booking/[tripId]/page.tsx",
-                                    lineNumber: 186,
+                                    lineNumber: 203,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
@@ -556,13 +562,13 @@ function BookingPage() {
                                     children: "انتخاب صندلی"
                                 }, void 0, false, {
                                     fileName: "[project]/blito-frontend/app/booking/[tripId]/page.tsx",
-                                    lineNumber: 189,
+                                    lineNumber: 206,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/blito-frontend/app/booking/[tripId]/page.tsx",
-                            lineNumber: 185,
+                            lineNumber: 202,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -573,18 +579,18 @@ function BookingPage() {
                             ]
                         }, void 0, true, {
                             fileName: "[project]/blito-frontend/app/booking/[tripId]/page.tsx",
-                            lineNumber: 191,
+                            lineNumber: 208,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/blito-frontend/app/booking/[tripId]/page.tsx",
-                    lineNumber: 184,
+                    lineNumber: 201,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/blito-frontend/app/booking/[tripId]/page.tsx",
-                lineNumber: 183,
+                lineNumber: 200,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("main", {
@@ -598,20 +604,20 @@ function BookingPage() {
                                 className: "h-4 w-4"
                             }, void 0, false, {
                                 fileName: "[project]/blito-frontend/app/booking/[tripId]/page.tsx",
-                                lineNumber: 202,
+                                lineNumber: 219,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$components$2f$ui$2f$alert$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["AlertDescription"], {
                                 children: error
                             }, void 0, false, {
                                 fileName: "[project]/blito-frontend/app/booking/[tripId]/page.tsx",
-                                lineNumber: 203,
+                                lineNumber: 220,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/blito-frontend/app/booking/[tripId]/page.tsx",
-                        lineNumber: 201,
+                        lineNumber: 218,
                         columnNumber: 11
                     }, this),
                     tripDetails && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Card"], {
@@ -625,7 +631,7 @@ function BookingPage() {
                                         children: tripDetails.route.company
                                     }, void 0, false, {
                                         fileName: "[project]/blito-frontend/app/booking/[tripId]/page.tsx",
-                                        lineNumber: 211,
+                                        lineNumber: 228,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$components$2f$ui$2f$badge$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Badge"], {
@@ -634,13 +640,13 @@ function BookingPage() {
                                         children: tripDetails.fleet.bus_type === 'vip' ? 'VIP تخت‌شو' : 'معمولی'
                                     }, void 0, false, {
                                         fileName: "[project]/blito-frontend/app/booking/[tripId]/page.tsx",
-                                        lineNumber: 212,
+                                        lineNumber: 229,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/blito-frontend/app/booking/[tripId]/page.tsx",
-                                lineNumber: 210,
+                                lineNumber: 227,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["CardContent"], {
@@ -656,7 +662,7 @@ function BookingPage() {
                                                     children: formatDateTime(tripDetails.departure_datetime).time
                                                 }, void 0, false, {
                                                     fileName: "[project]/blito-frontend/app/booking/[tripId]/page.tsx",
-                                                    lineNumber: 221,
+                                                    lineNumber: 238,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -666,26 +672,26 @@ function BookingPage() {
                                                             className: "w-4 h-4"
                                                         }, void 0, false, {
                                                             fileName: "[project]/blito-frontend/app/booking/[tripId]/page.tsx",
-                                                            lineNumber: 225,
+                                                            lineNumber: 242,
                                                             columnNumber: 21
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                             children: tripDetails.route.origin
                                                         }, void 0, false, {
                                                             fileName: "[project]/blito-frontend/app/booking/[tripId]/page.tsx",
-                                                            lineNumber: 226,
+                                                            lineNumber: 243,
                                                             columnNumber: 21
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/blito-frontend/app/booking/[tripId]/page.tsx",
-                                                    lineNumber: 224,
+                                                    lineNumber: 241,
                                                     columnNumber: 19
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/blito-frontend/app/booking/[tripId]/page.tsx",
-                                            lineNumber: 220,
+                                            lineNumber: 237,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -698,7 +704,7 @@ function BookingPage() {
                                                             className: "w-3 h-3"
                                                         }, void 0, false, {
                                                             fileName: "[project]/blito-frontend/app/booking/[tripId]/page.tsx",
-                                                            lineNumber: 233,
+                                                            lineNumber: 250,
                                                             columnNumber: 21
                                                         }, this),
                                                         " ",
@@ -706,7 +712,7 @@ function BookingPage() {
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/blito-frontend/app/booking/[tripId]/page.tsx",
-                                                    lineNumber: 232,
+                                                    lineNumber: 249,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -716,27 +722,27 @@ function BookingPage() {
                                                             className: "w-3 h-3 bg-blue-600 rounded-full absolute right-0 ring-4 ring-blue-50"
                                                         }, void 0, false, {
                                                             fileName: "[project]/blito-frontend/app/booking/[tripId]/page.tsx",
-                                                            lineNumber: 236,
+                                                            lineNumber: 253,
                                                             columnNumber: 21
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$bus$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Bus$3e$__["Bus"], {
                                                             className: "w-5 h-5 text-gray-400 absolute left-1/2 -translate-x-1/2 bg-white px-1"
                                                         }, void 0, false, {
                                                             fileName: "[project]/blito-frontend/app/booking/[tripId]/page.tsx",
-                                                            lineNumber: 237,
+                                                            lineNumber: 254,
                                                             columnNumber: 21
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                             className: "w-2 h-2 bg-gray-300 rounded-full absolute left-0"
                                                         }, void 0, false, {
                                                             fileName: "[project]/blito-frontend/app/booking/[tripId]/page.tsx",
-                                                            lineNumber: 238,
+                                                            lineNumber: 255,
                                                             columnNumber: 21
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/blito-frontend/app/booking/[tripId]/page.tsx",
-                                                    lineNumber: 235,
+                                                    lineNumber: 252,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -747,13 +753,13 @@ function BookingPage() {
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/blito-frontend/app/booking/[tripId]/page.tsx",
-                                                    lineNumber: 240,
+                                                    lineNumber: 257,
                                                     columnNumber: 19
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/blito-frontend/app/booking/[tripId]/page.tsx",
-                                            lineNumber: 231,
+                                            lineNumber: 248,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -764,7 +770,7 @@ function BookingPage() {
                                                     children: formatDateTime(tripDetails.arrival_datetime).time
                                                 }, void 0, false, {
                                                     fileName: "[project]/blito-frontend/app/booking/[tripId]/page.tsx",
-                                                    lineNumber: 247,
+                                                    lineNumber: 264,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -774,43 +780,43 @@ function BookingPage() {
                                                             children: tripDetails.route.destination
                                                         }, void 0, false, {
                                                             fileName: "[project]/blito-frontend/app/booking/[tripId]/page.tsx",
-                                                            lineNumber: 251,
+                                                            lineNumber: 268,
                                                             columnNumber: 21
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$map$2d$pin$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__MapPin$3e$__["MapPin"], {
                                                             className: "w-4 h-4"
                                                         }, void 0, false, {
                                                             fileName: "[project]/blito-frontend/app/booking/[tripId]/page.tsx",
-                                                            lineNumber: 252,
+                                                            lineNumber: 269,
                                                             columnNumber: 21
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/blito-frontend/app/booking/[tripId]/page.tsx",
-                                                    lineNumber: 250,
+                                                    lineNumber: 267,
                                                     columnNumber: 19
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/blito-frontend/app/booking/[tripId]/page.tsx",
-                                            lineNumber: 246,
+                                            lineNumber: 263,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/blito-frontend/app/booking/[tripId]/page.tsx",
-                                    lineNumber: 217,
+                                    lineNumber: 234,
                                     columnNumber: 15
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/blito-frontend/app/booking/[tripId]/page.tsx",
-                                lineNumber: 216,
+                                lineNumber: 233,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/blito-frontend/app/booking/[tripId]/page.tsx",
-                        lineNumber: 209,
+                        lineNumber: 226,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -831,14 +837,14 @@ function BookingPage() {
                                                             className: "w-5 h-5 text-blue-600"
                                                         }, void 0, false, {
                                                             fileName: "[project]/blito-frontend/app/booking/[tripId]/page.tsx",
-                                                            lineNumber: 269,
+                                                            lineNumber: 286,
                                                             columnNumber: 19
                                                         }, this),
                                                         "نقشه اتوبوس"
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/blito-frontend/app/booking/[tripId]/page.tsx",
-                                                    lineNumber: 268,
+                                                    lineNumber: 285,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -851,20 +857,20 @@ function BookingPage() {
                                                                     className: "w-3 h-3 rounded bg-white border border-gray-300"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/blito-frontend/app/booking/[tripId]/page.tsx",
-                                                                    lineNumber: 276,
+                                                                    lineNumber: 293,
                                                                     columnNumber: 21
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                                     children: "قابل خرید"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/blito-frontend/app/booking/[tripId]/page.tsx",
-                                                                    lineNumber: 277,
+                                                                    lineNumber: 294,
                                                                     columnNumber: 21
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/blito-frontend/app/booking/[tripId]/page.tsx",
-                                                            lineNumber: 275,
+                                                            lineNumber: 292,
                                                             columnNumber: 19
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -874,20 +880,20 @@ function BookingPage() {
                                                                     className: "w-3 h-3 rounded bg-blue-600"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/blito-frontend/app/booking/[tripId]/page.tsx",
-                                                                    lineNumber: 280,
+                                                                    lineNumber: 297,
                                                                     columnNumber: 21
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                                     children: "انتخاب شما"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/blito-frontend/app/booking/[tripId]/page.tsx",
-                                                                    lineNumber: 281,
+                                                                    lineNumber: 298,
                                                                     columnNumber: 21
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/blito-frontend/app/booking/[tripId]/page.tsx",
-                                                            lineNumber: 279,
+                                                            lineNumber: 296,
                                                             columnNumber: 19
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -897,7 +903,7 @@ function BookingPage() {
                                                                     className: "w-3 h-3 rounded bg-gray-100 border border-gray-200"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/blito-frontend/app/booking/[tripId]/page.tsx",
-                                                                    lineNumber: 284,
+                                                                    lineNumber: 301,
                                                                     columnNumber: 21
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -905,25 +911,25 @@ function BookingPage() {
                                                                     children: "رزرو شده"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/blito-frontend/app/booking/[tripId]/page.tsx",
-                                                                    lineNumber: 285,
+                                                                    lineNumber: 302,
                                                                     columnNumber: 21
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/blito-frontend/app/booking/[tripId]/page.tsx",
-                                                            lineNumber: 283,
+                                                            lineNumber: 300,
                                                             columnNumber: 19
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/blito-frontend/app/booking/[tripId]/page.tsx",
-                                                    lineNumber: 274,
+                                                    lineNumber: 291,
                                                     columnNumber: 17
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/blito-frontend/app/booking/[tripId]/page.tsx",
-                                            lineNumber: 267,
+                                            lineNumber: 284,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["CardContent"], {
@@ -937,12 +943,12 @@ function BookingPage() {
                                                             className: "w-8 h-8"
                                                         }, void 0, false, {
                                                             fileName: "[project]/blito-frontend/app/booking/[tripId]/page.tsx",
-                                                            lineNumber: 296,
+                                                            lineNumber: 313,
                                                             columnNumber: 21
                                                         }, this)
                                                     }, void 0, false, {
                                                         fileName: "[project]/blito-frontend/app/booking/[tripId]/page.tsx",
-                                                        lineNumber: 295,
+                                                        lineNumber: 312,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -952,12 +958,12 @@ function BookingPage() {
                                                             children: "جلوی اتوبوس"
                                                         }, void 0, false, {
                                                             fileName: "[project]/blito-frontend/app/booking/[tripId]/page.tsx",
-                                                            lineNumber: 300,
+                                                            lineNumber: 317,
                                                             columnNumber: 21
                                                         }, this)
                                                     }, void 0, false, {
                                                         fileName: "[project]/blito-frontend/app/booking/[tripId]/page.tsx",
-                                                        lineNumber: 299,
+                                                        lineNumber: 316,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -980,24 +986,24 @@ function BookingPage() {
                                                                             className: "w-3 h-3 text-white"
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/blito-frontend/app/booking/[tripId]/page.tsx",
-                                                                            lineNumber: 327,
+                                                                            lineNumber: 344,
                                                                             columnNumber: 31
                                                                         }, this)
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/blito-frontend/app/booking/[tripId]/page.tsx",
-                                                                        lineNumber: 326,
+                                                                        lineNumber: 343,
                                                                         columnNumber: 29
                                                                     }, this)
                                                                 ]
                                                             }, seat.id, true, {
                                                                 fileName: "[project]/blito-frontend/app/booking/[tripId]/page.tsx",
-                                                                lineNumber: 310,
+                                                                lineNumber: 327,
                                                                 columnNumber: 25
                                                             }, this);
                                                         })
                                                     }, void 0, false, {
                                                         fileName: "[project]/blito-frontend/app/booking/[tripId]/page.tsx",
-                                                        lineNumber: 304,
+                                                        lineNumber: 321,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1007,34 +1013,34 @@ function BookingPage() {
                                                             children: "عقب اتوبوس"
                                                         }, void 0, false, {
                                                             fileName: "[project]/blito-frontend/app/booking/[tripId]/page.tsx",
-                                                            lineNumber: 336,
+                                                            lineNumber: 353,
                                                             columnNumber: 21
                                                         }, this)
                                                     }, void 0, false, {
                                                         fileName: "[project]/blito-frontend/app/booking/[tripId]/page.tsx",
-                                                        lineNumber: 335,
+                                                        lineNumber: 352,
                                                         columnNumber: 19
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/blito-frontend/app/booking/[tripId]/page.tsx",
-                                                lineNumber: 292,
+                                                lineNumber: 309,
                                                 columnNumber: 17
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/blito-frontend/app/booking/[tripId]/page.tsx",
-                                            lineNumber: 290,
+                                            lineNumber: 307,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/blito-frontend/app/booking/[tripId]/page.tsx",
-                                    lineNumber: 266,
+                                    lineNumber: 283,
                                     columnNumber: 13
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/blito-frontend/app/booking/[tripId]/page.tsx",
-                                lineNumber: 265,
+                                lineNumber: 282,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1052,12 +1058,12 @@ function BookingPage() {
                                                         children: "صورتحساب"
                                                     }, void 0, false, {
                                                         fileName: "[project]/blito-frontend/app/booking/[tripId]/page.tsx",
-                                                        lineNumber: 348,
+                                                        lineNumber: 365,
                                                         columnNumber: 19
                                                     }, this)
                                                 }, void 0, false, {
                                                     fileName: "[project]/blito-frontend/app/booking/[tripId]/page.tsx",
-                                                    lineNumber: 347,
+                                                    lineNumber: 364,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["CardContent"], {
@@ -1073,24 +1079,24 @@ function BookingPage() {
                                                                     ]
                                                                 }, s.id, true, {
                                                                     fileName: "[project]/blito-frontend/app/booking/[tripId]/page.tsx",
-                                                                    lineNumber: 358,
+                                                                    lineNumber: 375,
                                                                     columnNumber: 27
                                                                 }, this))
                                                         }, void 0, false, {
                                                             fileName: "[project]/blito-frontend/app/booking/[tripId]/page.tsx",
-                                                            lineNumber: 354,
+                                                            lineNumber: 371,
                                                             columnNumber: 21
                                                         }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                             className: "text-center py-4 text-gray-400 text-sm border-2 border-dashed rounded-lg",
                                                             children: "هنوز صندلی انتخاب نکرده‌اید"
                                                         }, void 0, false, {
                                                             fileName: "[project]/blito-frontend/app/booking/[tripId]/page.tsx",
-                                                            lineNumber: 364,
+                                                            lineNumber: 381,
                                                             columnNumber: 21
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$components$2f$ui$2f$separator$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Separator"], {}, void 0, false, {
                                                             fileName: "[project]/blito-frontend/app/booking/[tripId]/page.tsx",
-                                                            lineNumber: 369,
+                                                            lineNumber: 386,
                                                             columnNumber: 19
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1103,7 +1109,7 @@ function BookingPage() {
                                                                             children: "تعداد صندلی"
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/blito-frontend/app/booking/[tripId]/page.tsx",
-                                                                            lineNumber: 374,
+                                                                            lineNumber: 391,
                                                                             columnNumber: 23
                                                                         }, this),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1113,13 +1119,13 @@ function BookingPage() {
                                                                             ]
                                                                         }, void 0, true, {
                                                                             fileName: "[project]/blito-frontend/app/booking/[tripId]/page.tsx",
-                                                                            lineNumber: 375,
+                                                                            lineNumber: 392,
                                                                             columnNumber: 23
                                                                         }, this)
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/blito-frontend/app/booking/[tripId]/page.tsx",
-                                                                    lineNumber: 373,
+                                                                    lineNumber: 390,
                                                                     columnNumber: 21
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1129,7 +1135,7 @@ function BookingPage() {
                                                                             children: "قیمت واحد"
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/blito-frontend/app/booking/[tripId]/page.tsx",
-                                                                            lineNumber: 378,
+                                                                            lineNumber: 395,
                                                                             columnNumber: 23
                                                                         }, this),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1139,19 +1145,19 @@ function BookingPage() {
                                                                             ]
                                                                         }, void 0, true, {
                                                                             fileName: "[project]/blito-frontend/app/booking/[tripId]/page.tsx",
-                                                                            lineNumber: 379,
+                                                                            lineNumber: 396,
                                                                             columnNumber: 23
                                                                         }, this)
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/blito-frontend/app/booking/[tripId]/page.tsx",
-                                                                    lineNumber: 377,
+                                                                    lineNumber: 394,
                                                                     columnNumber: 21
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/blito-frontend/app/booking/[tripId]/page.tsx",
-                                                            lineNumber: 372,
+                                                            lineNumber: 389,
                                                             columnNumber: 19
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1162,7 +1168,7 @@ function BookingPage() {
                                                                     children: "مبلغ نهایی"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/blito-frontend/app/booking/[tripId]/page.tsx",
-                                                                    lineNumber: 384,
+                                                                    lineNumber: 401,
                                                                     columnNumber: 21
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1173,7 +1179,7 @@ function BookingPage() {
                                                                             children: tripDetails ? formatPrice(selectedSeats.length * Number(tripDetails.current_price)) : 0
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/blito-frontend/app/booking/[tripId]/page.tsx",
-                                                                            lineNumber: 386,
+                                                                            lineNumber: 403,
                                                                             columnNumber: 23
                                                                         }, this),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1181,25 +1187,25 @@ function BookingPage() {
                                                                             children: "تومان"
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/blito-frontend/app/booking/[tripId]/page.tsx",
-                                                                            lineNumber: 389,
+                                                                            lineNumber: 406,
                                                                             columnNumber: 23
                                                                         }, this)
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/blito-frontend/app/booking/[tripId]/page.tsx",
-                                                                    lineNumber: 385,
+                                                                    lineNumber: 402,
                                                                     columnNumber: 21
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/blito-frontend/app/booking/[tripId]/page.tsx",
-                                                            lineNumber: 383,
+                                                            lineNumber: 400,
                                                             columnNumber: 19
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/blito-frontend/app/booking/[tripId]/page.tsx",
-                                                    lineNumber: 350,
+                                                    lineNumber: 367,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["CardFooter"], {
@@ -1214,7 +1220,7 @@ function BookingPage() {
                                                                     className: "w-5 h-5 ml-2 animate-spin"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/blito-frontend/app/booking/[tripId]/page.tsx",
-                                                                    lineNumber: 402,
+                                                                    lineNumber: 419,
                                                                     columnNumber: 25
                                                                 }, this),
                                                                 "در حال پردازش..."
@@ -1222,18 +1228,18 @@ function BookingPage() {
                                                         }, void 0, true) : "تایید و پرداخت آنلاین"
                                                     }, void 0, false, {
                                                         fileName: "[project]/blito-frontend/app/booking/[tripId]/page.tsx",
-                                                        lineNumber: 395,
+                                                        lineNumber: 412,
                                                         columnNumber: 19
                                                     }, this)
                                                 }, void 0, false, {
                                                     fileName: "[project]/blito-frontend/app/booking/[tripId]/page.tsx",
-                                                    lineNumber: 394,
+                                                    lineNumber: 411,
                                                     columnNumber: 17
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/blito-frontend/app/booking/[tripId]/page.tsx",
-                                            lineNumber: 346,
+                                            lineNumber: 363,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1243,49 +1249,49 @@ function BookingPage() {
                                                     className: "w-4 h-4 shrink-0"
                                                 }, void 0, false, {
                                                     fileName: "[project]/blito-frontend/app/booking/[tripId]/page.tsx",
-                                                    lineNumber: 413,
+                                                    lineNumber: 430,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                                     children: "با کلیک بر روی دکمه پرداخت، قوانین و مقررات خرید بلیط را می‌پذیرم."
                                                 }, void 0, false, {
                                                     fileName: "[project]/blito-frontend/app/booking/[tripId]/page.tsx",
-                                                    lineNumber: 414,
+                                                    lineNumber: 431,
                                                     columnNumber: 17
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/blito-frontend/app/booking/[tripId]/page.tsx",
-                                            lineNumber: 412,
+                                            lineNumber: 429,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/blito-frontend/app/booking/[tripId]/page.tsx",
-                                    lineNumber: 345,
+                                    lineNumber: 362,
                                     columnNumber: 13
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/blito-frontend/app/booking/[tripId]/page.tsx",
-                                lineNumber: 344,
+                                lineNumber: 361,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/blito-frontend/app/booking/[tripId]/page.tsx",
-                        lineNumber: 262,
+                        lineNumber: 279,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/blito-frontend/app/booking/[tripId]/page.tsx",
-                lineNumber: 197,
+                lineNumber: 214,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/blito-frontend/app/booking/[tripId]/page.tsx",
-        lineNumber: 180,
+        lineNumber: 197,
         columnNumber: 5
     }, this);
 }
