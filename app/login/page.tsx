@@ -3,135 +3,164 @@
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import axios from 'axios'
-import { Input } from "@/components/ui/input"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Input } from '@/components/ui/input'
+import { Button } from '@/components/ui/button'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 
 export default function LoginPage() {
-    const router = useRouter()
+  const router = useRouter()
 
-    const [phone, setPhone] = useState('')
-    const [password, setPassword] = useState('')
-    const [error, setError] = useState('')
+  const [phone, setPhone] = useState('')
+  const [password, setPassword] = useState('')
+  const [error, setError] = useState('')
+  const [loading, setLoading] = useState(false)
 
-    console.log({ phone, password });
+  useEffect(() => {
+    const token = localStorage.getItem('accessToken')
+    if (token) router.push('/dashboard')
+  }, [router])
 
-    // 👇 اگر کاربر قبلاً لاگین کرده، دیگه نیازی نیست دوباره لاگین کنه
-    useEffect(() => {
-        const token = localStorage.getItem('accessToken')
-        if (token) {
-            router.push('/dashboard') // هدایت به داشبورد
+  const handleLogin = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setError('')
+    setLoading(true)
+
+    try {
+      const response = await axios.post(
+        'http://localhost:9000/accounts/api/v1/auth/login/',
+        { phone, password },
+        {
+          headers: {
+            'Content-Type': 'application/json',
+            Accept: 'application/json',
+          },
         }
-    }, [])
+      )
 
-    const handleLogin = async (e: React.FormEvent) => {
-        e.preventDefault()
-        setError('') // پاک‌سازی ارورهای قبلی
+      const { access, refresh } = response.data
+      if (!access || !refresh) throw new Error('توکن‌های دسترسی بازگشتی ناقص‌اند.')
 
-        try {
-            // 📡 ارسال درخواست لاگین به API
-            const response = await axios.post(
-            'http://localhost:8000/accounts/api/v1/auth/login/',
-            {
-                phone,
-                password,
-            },
-            {
-                headers: {
-                "Content-Type": "application/json",
-                "Accept": "application/json",
-                },
-            }
-            );
+      localStorage.setItem('accessToken', access)
+      localStorage.setItem('refreshToken', refresh)
 
-            const { access, refresh } = response.data
-
-            // ⛔ بررسی اینکه آیا توکن‌ها برگشت داده شدن یا نه
-            if (!access || !refresh) {
-                throw new Error('توکن‌های دسترسی بازگشتی ناقص‌اند.')
-            }
-
-            // ✅ ذخیره توکن‌ها در localStorage
-            localStorage.setItem('accessToken', access)
-            localStorage.setItem('refreshToken', refresh)
-
-            // 🎯 هدایت به صفحه داشبورد پس از لاگین موفق
-            router.push('/dashboard')
-        } catch (err: any) {
-            // ❌ مدیریت انواع خطاها
-
-            // اگر سرور پاسخ داده ولی وضعیت خطاست:
-            if (err.response) {
-                if (err.response.status === 400) {
-                    setError('شماره تلفن یا رمز عبور اشتباه است.')
-                } else if (err.response.status === 401) {
-                    setError('احراز هویت انجام نشد. لطفاً دوباره تلاش کنید.')
-                } else {
-                    // سایر خطاهای سرور
-                    setError(`خطا ${err.response.status}: ${err.response.data?.detail || 'مشکلی پیش آمده.'}`)
-                }
-            }
-            // اگر سرور اصلاً پاسخ نداد (مثلاً قطع بودن سرور یا اینترنت):
-            else if (err.request) {
-                setError('اتصال به سرور برقرار نشد. لطفاً اینترنت خود را بررسی کنید.')
-            }
-            // خطاهای دیگر مثل خطای کدنویسی یا مشکلات axios
-            else {
-                setError(`خطا در برنامه: ${err.message}`)
-            }
-        }
+      router.push('/dashboard')
+    } catch (err: any) {
+      if (err.response) {
+        if (err.response.status === 400) setError('شماره موبایل یا رمز عبور نادرست است.')
+        else if (err.response.status === 401) setError('احراز هویت انجام نشد. دوباره تلاش کنید.')
+        else setError(`خطا ${err.response.status}: ${err.response.data?.detail || 'مشکلی پیش آمده.'}`)
+      } else if (err.request) {
+        setError('ارتباط با سرور برقرار نشد. اینترنت/سرور را بررسی کنید.')
+      } else {
+        setError(`خطای برنامه: ${err.message}`)
+      }
+    } finally {
+      setLoading(false)
     }
+  }
 
-    return (
-        <div className="flex items-center justify-center min-h-screen bg-gray-100">
-            <Card className="w-full max-w-sm shadow-md border border-gray-200">
-                <CardHeader>
-                    <CardTitle className="text-2xl font-bold text-center text-purple-700">
-                        لاگین کن عزیز دل 💕
-                    </CardTitle>
-                </CardHeader>
-                <CardContent>
-                    <form onSubmit={handleLogin} className="space-y-4">
-                        {/* فیلد شماره تلفن */}
-                        <div>
-                            <label htmlFor="phone" className="block text-sm font-medium text-gray-700">
-                                شماره تلفن
-                            </label>
-                            <Input
-                                type="text"
-                                id="phone"
-                                value={phone}
-                                onChange={(e) => setPhone(e.target.value)}
-                                placeholder="شماره تلفن خود را وارد کنید"
-                                required
-                            />
-                        </div>
+  return (
+    <div
+      className="relative min-h-screen overflow-hidden"
+      style={{
+        // ✅ تصویر تم (همین اسکرین‌شات رو بذار داخل: /public/images/login-theme.png)
+        backgroundImage: "url('/images/login-theme.png')",
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+      }}
+      dir="rtl"
+    >
+      {/* لایه نرم برای خوانایی (رنگ‌ها حفظ می‌شن) */}
+      <div className="absolute inset-0 bg-gradient-to-b from-sky-200/40 via-sky-100/25 to-white/60" />
 
-                        {/* فیلد رمز عبور */}
-                        <div>
-                            <label htmlFor="password" className="block text-sm font-medium text-gray-700">
-                                رمز عبور
-                            </label>
-                            <Input
-                                type="password"
-                                id="password"
-                                value={password}
-                                onChange={(e) => setPassword(e.target.value)}
-                                placeholder="رمز عبور خود را وارد کنید"
-                                required
-                            />
-                        </div>
+      {/* هاله‌های لطیف مثل طرح عکس */}
+      <div className="pointer-events-none absolute -left-40 top-24 h-[520px] w-[520px] rounded-full border border-white/30 bg-white/10 blur-lg" />
+      <div className="pointer-events-none absolute -right-44 top-10 h-[560px] w-[560px] rounded-full border border-white/30 bg-white/10 blur-lg" />
 
-                        {/* نمایش پیام خطا در صورت نیاز */}
-                        {error && <p className="text-red-500 text-sm text-center">{error}</p>}
+      <div className="relative flex min-h-screen items-center justify-center px-4 py-10">
+        <Card className="w-full max-w-md border-white/40 bg-white/20 shadow-[0_20px_60px_rgba(15,23,42,0.25)] backdrop-blur-xl">
+          <CardHeader className="pb-3">
+            <div className="flex items-center justify-center gap-3">
+              {/* ✅ آیکون سایت: /public/logo.svg یا /public/logo.png */}
 
-                        {/* دکمه ورود */}
-                        <Button type="submit" className="w-full bg-purple-600 hover:bg-purple-700 text-white">
-                            ورود
-                        </Button>
-                    </form>
-                </CardContent>
-            </Card>
-        </div>
-    )
+              <div className="text-center">
+                <CardTitle className="text-2xl font-semibold tracking-tight text-slate-900">
+                  ورود به پنل مدیریت
+                </CardTitle>
+                <p className="mt-1 text-sm text-slate-700/90">
+                  با شماره موبایل و رمز عبور وارد شوید
+                </p>
+              </div>
+            </div>
+          </CardHeader>
+
+          <CardContent className="pt-2">
+            <form onSubmit={handleLogin} className="space-y-4">
+              <div className="space-y-2">
+                <label htmlFor="phone" className="block text-sm font-medium text-slate-800">
+                  شماره موبایل
+                </label>
+                <Input
+                  id="phone"
+                  inputMode="tel"
+                  autoComplete="tel"
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
+                  placeholder="مثلاً 09123456789"
+                  className="h-11 bg-white/55 ring-1 ring-white/40 placeholder:text-slate-500 focus-visible:ring-2 focus-visible:ring-sky-400"
+                  required
+                />
+              </div>
+
+              <div className="space-y-2">
+                <label htmlFor="password" className="block text-sm font-medium text-slate-800">
+                  رمز عبور
+                </label>
+                <Input
+                  id="password"
+                  type="password"
+                  autoComplete="current-password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  placeholder="رمز عبور خود را وارد کنید"
+                  className="h-11 bg-white/55 ring-1 ring-white/40 placeholder:text-slate-500 focus-visible:ring-2 focus-visible:ring-sky-400"
+                  required
+                />
+              </div>
+
+              <div className="flex items-center justify-between pt-1 text-sm">
+                <button
+                  type="button"
+                  className="text-slate-700 hover:text-slate-900 underline underline-offset-4 decoration-slate-300"
+                  onClick={() => router.push('/forgot-password')}
+                >
+                  رمز عبور را فراموش کرده‌اید؟
+                </button>
+
+                <span className="text-slate-600/90">ورود امن</span>
+              </div>
+
+              {error && (
+                <div className="rounded-2xl border border-red-200/60 bg-red-50/70 px-3 py-2 text-sm text-red-700">
+                  {error}
+                </div>
+              )}
+
+              <Button
+                type="submit"
+                disabled={loading}
+                className="h-11 w-full rounded-2xl bg-slate-900 text-white shadow-sm hover:bg-slate-800 disabled:opacity-70"
+              >
+                {loading ? 'در حال ورود...' : 'ورود'}
+              </Button>
+
+              <p className="pt-2 text-center text-xs text-slate-700/80">
+                با ورود، قوانین و شرایط استفاده را می‌پذیرید.
+              </p>
+            </form>
+          </CardContent>
+        </Card>
+      </div>
+    </div>
+  )
 }

@@ -2157,6 +2157,7 @@ function HomePage() {
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
         "HomePage.useEffect": ()=>{
             const token = ("TURBOPACK compile-time truthy", 1) ? localStorage.getItem('accessToken') : "TURBOPACK unreachable";
+            console.log('Token:', token);
             setIsLoggedIn(!!token);
             setSelectedDate(new Date());
         }
@@ -2173,7 +2174,7 @@ function HomePage() {
             const fetchCities = {
                 "HomePage.useEffect.fetchCities": async ()=>{
                     try {
-                        const res = await fetch('http://localhost:8000/city/api/v1/cities/');
+                        const res = await fetch('http://localhost:9000/city/api/v1/cities/');
                         const data = await res.json();
                         var _data_results;
                         const results = Array.isArray(data) ? data : (_data_results = data === null || data === void 0 ? void 0 : data.results) !== null && _data_results !== void 0 ? _data_results : [];
@@ -2202,7 +2203,7 @@ function HomePage() {
         if (!fromCity || !toCity) return;
         setLoading(true);
         try {
-            const url = new URL('http://localhost:8000/trips/api/v1/trips/');
+            const url = new URL('http://localhost:9000/trips/api/v1/trips/');
             url.searchParams.append('route__origin', fromCity);
             url.searchParams.append('route__destination', toCity);
             url.searchParams.append('ordering', ordering);
@@ -2245,7 +2246,7 @@ function HomePage() {
                 onLogout: handleLogout
             }, void 0, false, {
                 fileName: "[project]/blito-frontend/app/page.tsx",
-                lineNumber: 175,
+                lineNumber: 178,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2266,13 +2267,13 @@ function HomePage() {
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/blito-frontend/app/page.tsx",
-                                        lineNumber: 187,
+                                        lineNumber: 190,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/blito-frontend/app/page.tsx",
-                                lineNumber: 185,
+                                lineNumber: 188,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2280,13 +2281,13 @@ function HomePage() {
                                 children: "بهترین قیمت‌ها و راحت‌ترین روش برای رزرو بلیت اتوبوس"
                             }, void 0, false, {
                                 fileName: "[project]/blito-frontend/app/page.tsx",
-                                lineNumber: 191,
+                                lineNumber: 194,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/blito-frontend/app/page.tsx",
-                        lineNumber: 184,
+                        lineNumber: 187,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$components$2f$home$2f$SearchSection$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
@@ -2303,7 +2304,7 @@ function HomePage() {
                         isSearchDisabled: !fromCity || !toCity
                     }, void 0, false, {
                         fileName: "[project]/blito-frontend/app/page.tsx",
-                        lineNumber: 196,
+                        lineNumber: 199,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$components$2f$trips$2f$TripsSection$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
@@ -2314,36 +2315,36 @@ function HomePage() {
                         onBook: handleBookTrip
                     }, void 0, false, {
                         fileName: "[project]/blito-frontend/app/page.tsx",
-                        lineNumber: 210,
+                        lineNumber: 213,
                         columnNumber: 9
                     }, this),
                     !searched && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$components$2f$home$2f$FeaturesSection$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
                         fileName: "[project]/blito-frontend/app/page.tsx",
-                        lineNumber: 218,
+                        lineNumber: 221,
                         columnNumber: 23
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         className: "mt-14",
                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$components$2f$ui$2f$Testimonials$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
                             fileName: "[project]/blito-frontend/app/page.tsx",
-                            lineNumber: 221,
+                            lineNumber: 224,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/blito-frontend/app/page.tsx",
-                        lineNumber: 220,
+                        lineNumber: 223,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/blito-frontend/app/page.tsx",
-                lineNumber: 183,
+                lineNumber: 186,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/blito-frontend/app/page.tsx",
-        lineNumber: 174,
+        lineNumber: 177,
         columnNumber: 5
     }, this);
 }

@@ -82,6 +82,7 @@ export default function HomePage() {
 
   useEffect(() => {
     const token = typeof window !== 'undefined' ? localStorage.getItem('accessToken') : null;
+    console.log('Token:', token);
     setIsLoggedIn(!!token);
 
     setSelectedDate(new Date());
@@ -94,7 +95,7 @@ export default function HomePage() {
   useEffect(() => {
     const fetchCities = async () => {
       try {
-        const res = await fetch('http://localhost:8000/city/api/v1/cities/');
+        const res = await fetch('http://localhost:9000/city/api/v1/cities/');
         const data = await res.json();
         const results: City[] = Array.isArray(data) ? data : data?.results ?? [];
         setCities(results);
@@ -108,6 +109,8 @@ export default function HomePage() {
   const handleLogout = () => {
     localStorage.removeItem('accessToken');
     localStorage.removeItem('refreshToken');
+    
+
     setIsLoggedIn(false);
   };
 
@@ -128,7 +131,7 @@ export default function HomePage() {
     setLoading(true);
 
     try {
-      const url = new URL('http://localhost:8000/trips/api/v1/trips/');
+      const url = new URL('http://localhost:9000/trips/api/v1/trips/');
 
       url.searchParams.append('route__origin', fromCity);
       url.searchParams.append('route__destination', toCity);
