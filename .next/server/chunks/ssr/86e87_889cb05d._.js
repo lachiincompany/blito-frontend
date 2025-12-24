@@ -18950,7 +18950,7 @@ module.exports = __turbopack_context__.r("[project]/blito-frontend/node_modules/
 "use strict";
 
 /**
- * @license lucide-react v0.516.0 - ISC
+ * @license lucide-react v0.562.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
@@ -18989,7 +18989,7 @@ const hasA11yProp = (props)=>{
 "use strict";
 
 /**
- * @license lucide-react v0.516.0 - ISC
+ * @license lucide-react v0.562.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
@@ -19015,7 +19015,7 @@ var defaultAttributes = {
 "use strict";
 
 /**
- * @license lucide-react v0.516.0 - ISC
+ * @license lucide-react v0.562.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
@@ -19054,7 +19054,7 @@ const Icon = (0, __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$fronte
 "use strict";
 
 /**
- * @license lucide-react v0.516.0 - ISC
+ * @license lucide-react v0.562.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
@@ -19085,7 +19085,7 @@ const createLucideIcon = (iconName, iconNode)=>{
 "use strict";
 
 /**
- * @license lucide-react v0.516.0 - ISC
+ * @license lucide-react v0.562.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
@@ -19137,7 +19137,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_mo
 "use strict";
 
 /**
- * @license lucide-react v0.516.0 - ISC
+ * @license lucide-react v0.562.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
@@ -19160,8 +19160,8 @@ const __iconNode = [
     [
         "path",
         {
-            d: "M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z",
-            key: "1d0kgt"
+            d: "M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z",
+            key: "r6nss1"
         }
     ]
 ];
@@ -19182,7 +19182,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_mo
 "use strict";
 
 /**
- * @license lucide-react v0.516.0 - ISC
+ * @license lucide-react v0.562.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
@@ -19241,7 +19241,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_mo
 "use strict";
 
 /**
- * @license lucide-react v0.516.0 - ISC
+ * @license lucide-react v0.562.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
@@ -19304,7 +19304,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_mo
 "use strict";
 
 /**
- * @license lucide-react v0.516.0 - ISC
+ * @license lucide-react v0.562.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
@@ -19356,7 +19356,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_mo
 "use strict";
 
 /**
- * @license lucide-react v0.516.0 - ISC
+ * @license lucide-react v0.562.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
@@ -19415,7 +19415,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_mo
 "use strict";
 
 /**
- * @license lucide-react v0.516.0 - ISC
+ * @license lucide-react v0.562.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
@@ -19462,7 +19462,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_mo
 "use strict";
 
 /**
- * @license lucide-react v0.516.0 - ISC
+ * @license lucide-react v0.562.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
@@ -19509,7 +19509,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_mo
 "use strict";
 
 /**
- * @license lucide-react v0.516.0 - ISC
+ * @license lucide-react v0.562.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
@@ -19523,19 +19523,19 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_mo
 ;
 const __iconNode = [
     [
+        "path",
+        {
+            d: "M12 6v6h4",
+            key: "135r8i"
+        }
+    ],
+    [
         "circle",
         {
             cx: "12",
             cy: "12",
             r: "10",
             key: "1mglay"
-        }
-    ],
-    [
-        "polyline",
-        {
-            points: "12 6 12 12 16.5 12",
-            key: "1aq6pp"
         }
     ]
 ];
@@ -19556,7 +19556,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_mo
 "use strict";
 
 /**
- * @license lucide-react v0.516.0 - ISC
+ * @license lucide-react v0.562.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
@@ -19610,7 +19610,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_mo
 "use strict";
 
 /**
- * @license lucide-react v0.516.0 - ISC
+ * @license lucide-react v0.562.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
@@ -19655,7 +19655,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_mo
 "use strict";
 
 /**
- * @license lucide-react v0.516.0 - ISC
+ * @license lucide-react v0.562.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
