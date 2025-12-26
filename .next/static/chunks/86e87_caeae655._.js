@@ -11219,7 +11219,7 @@ var Fallback = AvatarFallback;
 "use strict";
 
 /**
- * @license lucide-react v0.516.0 - ISC
+ * @license lucide-react v0.562.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
@@ -11263,7 +11263,7 @@ const hasA11yProp = (props)=>{
 "use strict";
 
 /**
- * @license lucide-react v0.516.0 - ISC
+ * @license lucide-react v0.562.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
@@ -11289,7 +11289,7 @@ var defaultAttributes = {
 "use strict";
 
 /**
- * @license lucide-react v0.516.0 - ISC
+ * @license lucide-react v0.562.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
@@ -11334,7 +11334,7 @@ const Icon = (0, __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$fronte
 "use strict";
 
 /**
- * @license lucide-react v0.516.0 - ISC
+ * @license lucide-react v0.562.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
@@ -11368,7 +11368,7 @@ const createLucideIcon = (iconName, iconNode)=>{
 "use strict";
 
 /**
- * @license lucide-react v0.516.0 - ISC
+ * @license lucide-react v0.562.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
@@ -11413,7 +11413,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_mo
 "use strict";
 
 /**
- * @license lucide-react v0.516.0 - ISC
+ * @license lucide-react v0.562.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
@@ -11465,7 +11465,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_mo
 "use strict";
 
 /**
- * @license lucide-react v0.516.0 - ISC
+ * @license lucide-react v0.562.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
@@ -11510,7 +11510,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_mo
 "use strict";
 
 /**
- * @license lucide-react v0.516.0 - ISC
+ * @license lucide-react v0.562.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
@@ -11562,7 +11562,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_mo
 "use strict";
 
 /**
- * @license lucide-react v0.516.0 - ISC
+ * @license lucide-react v0.562.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
@@ -11609,7 +11609,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_mo
 "use strict";
 
 /**
- * @license lucide-react v0.516.0 - ISC
+ * @license lucide-react v0.562.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
@@ -11672,7 +11672,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_mo
 "use strict";
 
 /**
- * @license lucide-react v0.516.0 - ISC
+ * @license lucide-react v0.562.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
@@ -11719,7 +11719,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_mo
 "use strict";
 
 /**
- * @license lucide-react v0.516.0 - ISC
+ * @license lucide-react v0.562.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
@@ -11771,7 +11771,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_mo
 "use strict";
 
 /**
- * @license lucide-react v0.516.0 - ISC
+ * @license lucide-react v0.562.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
@@ -11787,8 +11787,8 @@ const __iconNode = [
     [
         "path",
         {
-            d: "M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z",
-            key: "1tc9qg"
+            d: "M13.997 4a2 2 0 0 1 1.76 1.05l.486.9A2 2 0 0 0 18.003 7H20a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h1.997a2 2 0 0 0 1.759-1.048l.489-.904A2 2 0 0 1 10.004 4z",
+            key: "18u6gg"
         }
     ],
     [
@@ -11818,7 +11818,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_mo
 "use strict";
 
 /**
- * @license lucide-react v0.516.0 - ISC
+ * @license lucide-react v0.562.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
@@ -11863,7 +11863,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_mo
 "use strict";
 
 /**
- * @license lucide-react v0.516.0 - ISC
+ * @license lucide-react v0.562.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.

@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { useCallback, useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import axios from 'axios';
@@ -225,6 +226,7 @@ export default function TicketsPage() {
                 <option value="price_desc">گران‌ترین</option>
                 <option value="price_asc">ارزان‌ترین</option>
               </select>
+              <Link href="/tickets/42">برو به بلیط ۴۲</Link>
             </div>
           </CardContent>
         </Card>
@@ -242,9 +244,15 @@ export default function TicketsPage() {
         ) : (
           <div className="grid grid-cols-1 gap-8">
             {tickets.map((t) => (
-              <BusTicketCard key={t.id} ticket={t} />
+              <Link
+                key={t.id}
+                href={`/dashboard/tickets/${t.id}`}
+                className="block"
+              >
+                <BusTicketCard ticket={t} />
+              </Link>
             ))}
-          </div>
+        </div>
         )}
       </main>
     </div>
