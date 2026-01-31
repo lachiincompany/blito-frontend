@@ -339,7 +339,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_mo
 ;
 ;
 // --- API & HELPERS ---
-const API_BASE = 'http://localhost:9000';
+const API_BASE = '';
 const RESERVATIONS_LIST_URL = `${API_BASE}/reservations/api/v1/api/reservations/`;
 function formatMoneyIRRDecimal(n) {
     const num = Number(n);

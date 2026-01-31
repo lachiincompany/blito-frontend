@@ -24,7 +24,7 @@ import {
   BadgeX,
 } from 'lucide-react';
 
-const API_BASE = 'http://localhost:9000';
+const API_BASE = '';
 
 // ---- TYPES (جزئیات API) ----
 type PaymentStatus = 'PENDING' | 'PAID' | 'FAILED' | 'REFUNDED';

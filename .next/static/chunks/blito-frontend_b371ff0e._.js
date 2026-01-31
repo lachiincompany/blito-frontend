@@ -869,7 +869,7 @@ var _s = __turbopack_context__.k.signature();
 ;
 ;
 ;
-const API_BASE = 'http://localhost:9000';
+const API_BASE = '';
 function safeMoney(n) {
     if (!n) return '—';
     const num = Number(n);

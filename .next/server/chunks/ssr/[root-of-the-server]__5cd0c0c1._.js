@@ -411,13 +411,13 @@ function BookingPage() {
             setLoading(true);
             try {
                 // 1. دریافت جزئیات سفر
-                const tripRes = await fetch(`http://localhost:9000/trips/api/v1/trips/${tripId}/`);
+                const tripRes = await fetch(`/trips/api/v1/trips/${tripId}/`);
                 if (!tripRes.ok) throw new Error('خطا در دریافت اطلاعات سفر');
                 const tripData = await tripRes.json();
                 setTripDetails(tripData);
                 // 2. دریافت لیست صندلی‌ها
                 const token = localStorage.getItem('accessToken');
-                const seatRes = await fetch(`http://localhost:9000/seat/api/v1/api/seats/trip/${tripId}/`, {
+                const seatRes = await fetch(`/seat/api/v1/api/seats/trip/${tripId}/`, {
                     headers: token ? {
                         'Authorization': `Bearer ${token}`
                     } : {}
@@ -467,7 +467,7 @@ function BookingPage() {
         if (selectedSeats.length === 0) return;
         const token = localStorage.getItem("accessToken");
         // 1) ایجاد رزرو
-        const createRes = await fetch("http://localhost:9000/reservations/api/v1/api/reservations/", {
+        const createRes = await fetch("/reservations/api/v1/api/reservations/", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -486,7 +486,7 @@ function BookingPage() {
         console.log("Reservation created:", reservation);
         const reservationId = reservation.id;
         // 2) تایید پرداخت آفلاین
-        const payRes = await fetch(`http://localhost:9000/reservations/api/v1/api/reservations/${reservationId}/confirm_payment/`, {
+        const payRes = await fetch(`/reservations/api/v1/api/reservations/${reservationId}/confirm_payment/`, {
             method: "POST",
             headers: {
                 "Authorization": `Bearer ${token}`

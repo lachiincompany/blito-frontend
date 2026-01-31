@@ -2174,7 +2174,7 @@ function HomePage() {
             const fetchCities = {
                 "HomePage.useEffect.fetchCities": async ()=>{
                     try {
-                        const res = await fetch('http://localhost:9000/city/api/v1/cities/');
+                        const res = await fetch('/city/api/v1/cities/');
                         const data = await res.json();
                         var _data_results;
                         const results = Array.isArray(data) ? data : (_data_results = data === null || data === void 0 ? void 0 : data.results) !== null && _data_results !== void 0 ? _data_results : [];
@@ -2203,7 +2203,7 @@ function HomePage() {
         if (!fromCity || !toCity) return;
         setLoading(true);
         try {
-            const url = new URL('http://localhost:9000/trips/api/v1/trips/');
+            const url = new URL('/trips/api/v1/trips/');
             url.searchParams.append('route__origin', fromCity);
             url.searchParams.append('route__destination', toCity);
             url.searchParams.append('ordering', ordering);

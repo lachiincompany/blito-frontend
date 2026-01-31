@@ -19,7 +19,7 @@ type ProfileType = {
   profile_picture: string;
 };
 
-const API_BASE = 'http://localhost:9000';
+const API_BASE = '';
 
 export default function DashboardPage() {
   const router = useRouter();

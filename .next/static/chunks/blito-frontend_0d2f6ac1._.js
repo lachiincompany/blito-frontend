@@ -404,7 +404,7 @@ var _s = __turbopack_context__.k.signature();
 ;
 ;
 ;
-const API_BASE = 'http://localhost:9000';
+const API_BASE = '';
 function DashboardPage() {
     var _profile_first_name, _profile_last_name;
     _s();

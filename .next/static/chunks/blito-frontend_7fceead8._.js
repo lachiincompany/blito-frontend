@@ -376,7 +376,7 @@ var _s = __turbopack_context__.k.signature();
 ;
 ;
 ;
-const API_BASE = 'http://localhost:9000';
+const API_BASE = '';
 const RESERVATIONS_LIST_URL = "".concat(API_BASE, "/reservations/api/v1/api/reservations/"); // لیست رزروهای کاربر جاری (با فیلتر/سرچ/ordering بک‌اند)
 function formatMoneyIRRDecimal(n) {
     const num = Number(n);

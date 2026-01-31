@@ -95,7 +95,7 @@ export default function HomePage() {
   useEffect(() => {
     const fetchCities = async () => {
       try {
-        const res = await fetch('http://localhost:9000/city/api/v1/cities/');
+        const res = await fetch('/city/api/v1/cities/');
         const data = await res.json();
         const results: City[] = Array.isArray(data) ? data : data?.results ?? [];
         setCities(results);
@@ -131,7 +131,7 @@ export default function HomePage() {
     setLoading(true);
 
     try {
-      const url = new URL('http://localhost:9000/trips/api/v1/trips/');
+      const url = new URL('/trips/api/v1/trips/');
 
       url.searchParams.append('route__origin', fromCity);
       url.searchParams.append('route__destination', toCity);

@@ -922,7 +922,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$blito$2d$frontend$2f$node_mo
 ;
 ;
 ;
-const API_BASE = 'http://localhost:9000';
+const API_BASE = '';
 function safeMoney(n) {
     if (!n) return '—';
     const num = Number(n);

@@ -416,12 +416,12 @@ function BookingPage() {
                 "BookingPage.useEffect.fetchData": async ()=>{
                     setLoading(true);
                     try {
-                        const tripRes = await fetch("http://localhost:9000/trips/api/v1/trips/".concat(tripId, "/"));
+                        const tripRes = await fetch("/trips/api/v1/trips/".concat(tripId, "/"));
                         if (!tripRes.ok) throw new Error('خطا در دریافت اطلاعات سفر');
                         const tripData = await tripRes.json();
                         setTripDetails(tripData);
                         const token = localStorage.getItem('accessToken');
-                        const seatRes = await fetch("http://localhost:9000/seat/api/v1/api/seats/trip/".concat(tripId, "/"), {
+                        const seatRes = await fetch("/seat/api/v1/api/seats/trip/".concat(tripId, "/"), {
                             headers: token ? {
                                 'Authorization': "Bearer ".concat(token)
                             } : {}
@@ -464,7 +464,7 @@ function BookingPage() {
         setReserving(true);
         const token = localStorage.getItem("accessToken");
         try {
-            const createRes = await fetch("http://localhost:9000/reservations/api/v1/api/reservations/", {
+            const createRes = await fetch("/reservations/api/v1/api/reservations/", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -481,7 +481,7 @@ function BookingPage() {
                 return;
             }
             const reservationId = reservation.id;
-            const payRes = await fetch("http://localhost:9000/reservations/api/v1/api/reservations/".concat(reservationId, "/confirm_payment/"), {
+            const payRes = await fetch("/reservations/api/v1/api/reservations/".concat(reservationId, "/confirm_payment/"), {
                 method: "POST",
                 headers: {
                     "Authorization": "Bearer ".concat(token)
