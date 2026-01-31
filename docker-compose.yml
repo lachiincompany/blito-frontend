@@ -1,6 +1,10 @@
 services:
   frontend:
-    build: .
+    build:
+      context: .
+      args:
+        NPM_REGISTRY: "https://mirror-npm.runflare.com/"
     ports:
-      - "5050:3000"
+      - "127.0.0.1:3000:3000"
     restart: unless-stopped
+
