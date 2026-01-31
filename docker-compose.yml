@@ -1,0 +1,6 @@
+services:
+  frontend:
+    build: .
+    ports:
+      - "5050:3000"
+    restart: unless-stopped
