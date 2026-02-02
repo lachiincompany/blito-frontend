@@ -131,7 +131,8 @@ export default function HomePage() {
     setLoading(true);
 
     try {
-      const url = new URL('/trips/api/v1/trips/');
+      const url = new URL('/trips/api/v1/trips/', window.location.origin);
+
 
       url.searchParams.append('route__origin', fromCity);
       url.searchParams.append('route__destination', toCity);
